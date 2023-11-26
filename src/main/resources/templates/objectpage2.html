@@ -1,0 +1,574 @@
+<div class="div">
+  <div class="div-2">
+    <div class="div-3"><a class="div-4" href="/orderpage">Хранилище <br /> данных</a></div>
+    <div class="div-5"><a class="div-6" href="/orderpage">Мониторинг</a></div>
+    <a class="div-7" href="/orderpage">Страница <br /> заказов</a>
+    <div class="div-8">
+      <a class="div-9" href="/warehousepage">Страница <br /> склада</a>
+    </div>
+    <a class="div-10" href="/testpage">Тест <br /> страница</a>
+    <div class="div-13"><a class="div-14" href="/testpage">Домашняя <br /> страница</a></div>
+  </div>
+  <div class="div-15">Страница объекта</div>
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    /* Стили для таблицы и скроллбара */
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+    }
+
+    th, td {
+      border: 1px solid #ddd;
+      padding: 8px;
+      text-align: left;
+    }
+
+    th {
+      background-color: #f2f2f2;
+    }
+
+    .table-container {
+      max-height: 300px; /* Максимальная высота таблицы */
+      overflow-y: auto;
+    }
+  </style>
+</head>
+<body>
+
+<div class="table-container">
+  <table id="dynamicTable">
+    <thead>
+      <tr>
+        <th>Название объекта</th>
+        <th>Адрес объекта</th>
+        <th>Кол-во рабочих</th>
+        <th>Организация</th>
+        <th>Локация</th>
+      </tr>
+    </thead>
+    <tbody id="tableBody">
+      <!-- Здесь будут добавлены строки с данными через JavaScript -->
+    </tbody>
+  </table>
+</div>
+
+<script>
+  // Пример данных для заполнения таблицы (можно заменить на реальные данные)
+  const data = [
+    { name: 'Объект 1', address: 'Адрес 1', workers: 10, organization: 'Организация 1', location: 'Локация 1' },
+    { name: 'Объект 2', address: 'Адрес 2', workers: 15, organization: 'Организация 2', location: 'Локация 2' },
+    { name: 'Объект 3', address: 'Адрес 3', workers: 8, organization: 'Организация 3', location: 'Локация 3' },
+	{ name: 'Объект 3', address: 'Адрес 3', workers: 8, organization: 'Организация 3', location: 'Локация 3' },
+	{ name: 'Объект 3', address: 'Адрес 3', workers: 8, organization: 'Организация 3', location: 'Локация 3' },
+	{ name: 'Объект 3', address: 'Адрес 3', workers: 8, organization: 'Организация 3', location: 'Локация 3' },
+	{ name: 'Объект 3', address: 'Адрес 3', workers: 8, organization: 'Организация 3', location: 'Локация 3' },
+	{ name: 'Объект 3', address: 'Адрес 3', workers: 8, organization: 'Организация 3', location: 'Локация 3' },
+	{ name: 'Объект 3', address: 'Адрес 3', workers: 8, organization: 'Организация 3', location: 'Локация 3' },
+	{ name: 'Объект 3', address: 'Адрес 3', workers: 8, organization: 'Организация 3', location: 'Локация 3' },
+	{ name: 'Объект 3', address: 'Адрес 3', workers: 8, organization: 'Организация 3', location: 'Локация 3' },
+	{ name: 'Объект 3', address: 'Адрес 3', workers: 8, organization: 'Организация 3', location: 'Локация 3' },
+	{ name: 'Объект 3', address: 'Адрес 3', workers: 8, organization: 'Организация 3', location: 'Локация 3' },
+	{ name: 'Объект 3', address: 'Адрес 3', workers: 8, organization: 'Организация 3', location: 'Локация 3' },
+	{ name: 'Объект 3', address: 'Адрес 3', workers: 8, organization: 'Организация 3', location: 'Локация 3' },
+    // ... добавьте дополнительные объекты, если нужно
+  ];
+
+  // Функция для заполнения таблицы данными
+  function fillTable() {
+    const tableBody = document.getElementById('tableBody');
+    tableBody.innerHTML = ''; // Очистить предыдущие данные перед заполнением
+
+    for (const item of data) {
+      const row = document.createElement('tr');
+      row.innerHTML = `
+        <td>${item.name}</td>
+        <td>${item.address}</td>
+        <td>${item.workers}</td>
+        <td>${item.organization}</td>
+        <td>${item.location}</td>
+      `;
+      tableBody.appendChild(row);
+    }
+  }
+
+  // Вызов функции для заполнения таблицы данными
+  fillTable();
+</script>
+
+</body>
+</html>
+
+</div>
+<style>
+  .div {
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+  }
+  .div-2 {
+    background-color: #01939a;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 15px 11px 15px 0;
+	text-decoration: none;
+  }
+  @media (max-width: 991px) {
+    .div-2 {
+      max-width: 100%;
+      flex-wrap: wrap;
+      padding-left: 20px;
+    }
+  }
+  .div-3 {
+    display: flex;
+    flex-grow: 1;
+    flex-basis: 0%;
+    flex-direction: column;
+	text-decoration: none;
+  }
+  .div-4 {
+    justify-content: center;
+    color: #363636;
+    text-align: center;
+    background-color: #36d986;
+    padding: 9px 5px;
+    font: 400 25px/30px Inter, sans-serif;
+	text-decoration: none;
+  }
+  @media (max-width: 991px) {
+    .div-4 {
+      padding-right: 1px;
+    }
+  }
+  .div-5 {
+    display: flex;
+    flex-grow: 1;
+    flex-basis: 0%;
+    flex-direction: column;
+	text-decoration: none;
+  }
+  .div-6 {
+    justify-content: center;
+    color: #363636;
+    text-align: center;
+    white-space: nowrap;
+    background-color: #36d986;
+    padding: 24px 3px;
+    font: 400 25px/30px Inter, sans-serif;
+	text-decoration: none;
+  }
+  @media (max-width: 991px) {
+    .div-6 {
+      white-space: initial;
+      padding-right: -2px;
+    }
+  }
+  .div-7 {
+    color: #363636;
+    text-align: center;
+    justify-content: center;
+    background-color: #36d986;
+    flex-grow: 1;
+    padding: 5px 11px;
+    font: 400 25px/30px Inter, sans-serif;
+	text-decoration: none;
+  }
+  .div-8 {
+    border-radius: 4px;
+    display: flex;
+    flex-grow: 1;
+    flex-basis: 0%;
+    flex-direction: column;
+	text-decoration: none;
+  }
+  .div-9 {
+    justify-content: center;
+    color: #363636;
+    text-align: center;
+    background-color: #36d986;
+    padding: 9px 16px;
+    font: 400 25px/30px Inter, sans-serif;
+	text-decoration: none;
+  }
+  @media (max-width: 991px) {
+    .div-9 {
+      padding-right: 1px;
+    }
+  }
+  .div-10 {
+    color: #363636;
+    text-align: center;
+    justify-content: center;
+    border-radius: 4px;
+    background-color: #36d986;
+    flex-grow: 1;
+    padding: 5px 15px;
+    font: 400 25px/30px Inter, sans-serif;
+	text-decoration: none;
+  }
+  .div-11 {
+    background-color: #36d986;
+    display: flex;
+    flex-grow: 1;
+    flex-basis: 0%;
+    flex-direction: column;
+	text-decoration: none;
+  }
+  .div-12 {
+    justify-content: center;
+    color: #363636;
+    text-align: center;
+    background-color: #36d986;
+    padding: 9px 6px;
+    font: 400 25px/30px Inter, sans-serif;
+	text-decoration: none;
+  }
+  .div-13 {
+    display: flex;
+    flex-grow: 1;
+    flex-basis: 0%;
+    flex-direction: column;
+	text-decoration: none;
+  }
+  .div-14 {
+    justify-content: center;
+    color: #363636;
+    text-align: center;
+    background-color: #36d986;
+    padding: 9px 11px;
+    font: 400 25px/30px Inter, sans-serif;
+	text-decoration: none;
+  }
+  @media (max-width: 991px) {
+    .div-14 {
+      padding-right: 1px;
+    }
+  }
+  .div-15 {
+    color: #000;
+    align-self: center;
+    margin-top: 78px;
+    white-space: nowrap;
+    font: 400 40px/48px Inter, sans-serif;
+	text-decoration: none;
+  }
+  @media (max-width: 991px) {
+    .div-15 {
+      margin-top: 40px;
+      white-space: initial;
+    }
+  }
+  .div-16 {
+    border-radius: 4px;
+    border: 1px solid #b9b9b9;
+    background-color: #fff;
+    align-self: center;
+    display: flex;
+    width: 100%;
+    max-width: 1000px;
+    flex-direction: column;
+    margin: 85px 0 138px;
+	text-decoration: none;
+  }
+  @media (max-width: 991px) {
+    .div-16 {
+      max-width: 100%;
+      margin: 40px 0;
+    }
+  }
+  .div-17 {
+    background-color: rgba(255, 255, 255, 0);
+    display: flex;
+    gap: 0px;
+    padding: 0 20px;
+	text-decoration: none;
+  }
+  @media (max-width: 991px) {
+    .div-17 {
+      max-width: 100%;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+  }
+  .div-18 {
+    color: #000;
+    border-top: 1px solid #b9b9b9;
+    border-left: 1px solid #b9b9b9;
+    background-color: rgba(0, 0, 0, 0.06);
+    flex-grow: 1;
+    padding: 10px 12px 36px;
+    font: 600 20px/26px Inter, sans-serif;
+	text-decoration: none;
+  }
+  .div-19 {
+    color: #000;
+    border-top: 1px solid #b9b9b9;
+    border-left: 1px solid #b9b9b9;
+    background-color: rgba(0, 0, 0, 0.06);
+    flex-grow: 1;
+    padding: 10px 12px 36px;
+    font: 600 20px/26px Inter, sans-serif;
+	text-decoration: none;
+  }
+  .div-20 {
+    color: #000;
+    border-top: 1px solid #b9b9b9;
+    border-left: 1px solid #b9b9b9;
+    background-color: rgba(0, 0, 0, 0.06);
+    flex-grow: 1;
+    padding: 10px 12px 36px;
+    font: 600 20px/26px Inter, sans-serif;
+	text-decoration: none;
+  }
+  .div-21 {
+    color: #000;
+    border-top: 1px solid #b9b9b9;
+    border-left: 1px solid #b9b9b9;
+    background-color: rgba(0, 0, 0, 0.06);
+    flex-grow: 1;
+    padding: 10px 12px 62px;
+    font: 600 20px/26px Inter, sans-serif;
+	text-decoration: none;
+  }
+  .div-22 {
+    color: #000;
+    border-top: 1px solid #b9b9b9;
+    border-left: 1px solid #b9b9b9;
+    background-color: rgba(0, 0, 0, 0.06);
+    flex-grow: 1;
+    padding: 10px 12px 62px;
+    font: 600 20px/26px Inter, sans-serif;
+	text-decoration: none;
+  }
+  .div-23 {
+    align-items: flex-start;
+    background-color: rgba(255, 255, 255, 0);
+    display: flex;
+    gap: 0px;
+    padding: 0 20px;
+	text-decoration: none;
+  }
+  @media (max-width: 991px) {
+    .div-23 {
+      max-width: 100%;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+  }
+  .div-24 {
+    align-items: flex-start;
+    border-top: 1px solid #b9b9b9;
+    border-left: 1px solid #b9b9b9;
+    background-color: rgba(255, 255, 255, 0);
+    align-self: start;
+    display: flex;
+    width: 138px;
+    height: 98px;
+    flex-direction: column;
+	text-decoration: none;
+  }
+  .div-25 {
+    align-items: flex-start;
+    align-self: stretch;
+    border-top: 1px solid #b9b9b9;
+    border-left: 1px solid #b9b9b9;
+    background-color: rgba(255, 255, 255, 0);
+    display: flex;
+    width: 216px;
+    height: 154px;
+    flex-direction: column;
+	text-decoration: none;
+  }
+  .div-26 {
+    align-items: flex-start;
+    align-self: stretch;
+    border-top: 1px solid #b9b9b9;
+    border-left: 1px solid #b9b9b9;
+    background-color: rgba(255, 255, 255, 0);
+    display: flex;
+    width: 215px;
+    height: 154px;
+    flex-direction: column;
+	text-decoration: none;
+  }
+  .div-27 {
+    align-items: flex-start;
+    align-self: stretch;
+    border-top: 1px solid #b9b9b9;
+    border-left: 1px solid #b9b9b9;
+    background-color: rgba(255, 255, 255, 0);
+    display: flex;
+    width: 216px;
+    height: 154px;
+    flex-direction: column;
+	text-decoration: none;
+  }
+  .div-28 {
+    align-items: flex-start;
+    align-self: stretch;
+    border-top: 1px solid #b9b9b9;
+    border-left: 1px solid #b9b9b9;
+    background-color: rgba(255, 255, 255, 0);
+    display: flex;
+    width: 215px;
+    height: 154px;
+    flex-direction: column;
+	text-decoration: none;
+  }
+  .div-29 {
+    align-items: flex-start;
+    background-color: rgba(255, 255, 255, 0);
+    display: flex;
+    gap: 0px;
+    padding: 0 20px;
+	text-decoration: none;
+  }
+  @media (max-width: 991px) {
+    .div-29 {
+      max-width: 100%;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+  }
+  .div-30 {
+    align-items: flex-start;
+    border-top: 1px solid #b9b9b9;
+    border-left: 1px solid #b9b9b9;
+    background-color: rgba(255, 255, 255, 0);
+    align-self: start;
+    display: flex;
+    width: 138px;
+    height: 98px;
+    flex-direction: column;
+	text-decoration: none;
+  }
+  .div-31 {
+    align-items: flex-start;
+    align-self: stretch;
+    border-top: 1px solid #b9b9b9;
+    border-left: 1px solid #b9b9b9;
+    background-color: rgba(255, 255, 255, 0);
+    display: flex;
+    width: 216px;
+    height: 116px;
+    flex-direction: column;
+	text-decoration: none;
+  }
+  .div-32 {
+    align-items: flex-start;
+    align-self: stretch;
+    border-top: 1px solid #b9b9b9;
+    border-left: 1px solid #b9b9b9;
+    background-color: rgba(255, 255, 255, 0);
+    display: flex;
+    width: 215px;
+    height: 116px;
+    flex-direction: column;
+	text-decoration: none;
+  }
+  .div-33 {
+    align-items: flex-start;
+    align-self: stretch;
+    border-top: 1px solid #b9b9b9;
+    border-left: 1px solid #b9b9b9;
+    background-color: rgba(255, 255, 255, 0);
+    display: flex;
+    width: 216px;
+    height: 116px;
+    flex-direction: column;
+	text-decoration: none;
+  }
+  .div-34 {
+    align-items: flex-start;
+    align-self: stretch;
+    border-top: 1px solid #b9b9b9;
+    border-left: 1px solid #b9b9b9;
+    background-color: rgba(255, 255, 255, 0);
+    display: flex;
+    width: 215px;
+    height: 116px;
+    flex-direction: column;
+	text-decoration: none;
+  }
+  .div-35 {
+    align-items: flex-start;
+    background-color: rgba(255, 255, 255, 0);
+    display: flex;
+    gap: 0px;
+    padding: 0 20px;
+	text-decoration: none;
+  }
+  @media (max-width: 991px) {
+    .div-35 {
+      max-width: 100%;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+  }
+  .div-36 {
+    align-items: flex-start;
+    border-top: 1px solid #b9b9b9;
+    border-left: 1px solid #b9b9b9;
+    background-color: rgba(255, 255, 255, 0);
+    align-self: start;
+    display: flex;
+    width: 138px;
+    height: 98px;
+    flex-direction: column;
+	text-decoration: none;
+  }
+  .div-37 {
+    align-items: flex-start;
+    align-self: stretch;
+    border-top: 1px solid #b9b9b9;
+    border-left: 1px solid #b9b9b9;
+    background-color: rgba(255, 255, 255, 0);
+    display: flex;
+    width: 216px;
+    height: 182px;
+    flex-direction: column;
+	text-decoration: none;
+  }
+  .div-38 {
+    align-items: flex-start;
+    align-self: stretch;
+    border-top: 1px solid #b9b9b9;
+    border-left: 1px solid #b9b9b9;
+    background-color: rgba(255, 255, 255, 0);
+    display: flex;
+    width: 215px;
+    height: 182px;
+    flex-direction: column;
+	text-decoration: none;
+  }
+  .div-39 {
+    align-items: flex-start;
+    align-self: stretch;
+    border-top: 1px solid #b9b9b9;
+    border-left: 1px solid #b9b9b9;
+    background-color: rgba(255, 255, 255, 0);
+    display: flex;
+    width: 216px;
+    height: 182px;
+    flex-direction: column;
+	text-decoration: none;
+  }
+  .div-40 {
+    align-items: flex-start;
+    align-self: stretch;
+    border-top: 1px solid #b9b9b9;
+    border-left: 1px solid #b9b9b9;
+    background-color: rgba(255, 255, 255, 0);
+    display: flex;
+    width: 215px;
+    height: 182px;
+    flex-direction: column;
+	text-decoration: none;
+  }
+</style>

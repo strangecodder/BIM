@@ -1,0 +1,251 @@
+<div class="div">
+  <div class="div-2">
+    <div class="div-3"><a class="div-4" href="/orderpage">Хранилище <br /> данных</a></div>
+    <div class="div-5"><a class="div-6" href="/orderpage">Мониторинг</a></div>
+    <a class="div-7" href="/orderpage">Страница <br /> заказов</a>
+    <div class="div-8">
+      <a class="div-9" href="/warehousepage">Страница <br /> склада</a>
+    </div>
+    <a class="div-10" href="/testpage">Тест <br /> страница</a>
+    <div class="div-13"><a class="div-14" href="/testpage">Домашняя <br /> страница</a></div>
+  </div>
+  <div class="div-15">Страница объекта</div>
+  <div class="div-16">Название объекта</div>
+  <div class="div-17">
+    <div class="div-18"><input type="text" name="id" th:value="${id}"  placeholder="Поиск по id" size="20" ></div>
+  </div>
+  <button class="div-20" onclick="alert('Кнопка была нажата!')">Добавить</button>
+</div>
+<style>
+  .div {
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+  }
+  .div-2 {
+    background-color: #01939a;
+    align-self: stretch;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 15px 11px 15px 0;
+	text-decoration: none;
+  }
+  @media (max-width: 991px) {
+    .div-2 {
+      max-width: 100%;
+      flex-wrap: wrap;
+      padding-left: 20px;
+    }
+  }
+  .div-3 {
+    display: flex;
+    flex-grow: 1;
+    flex-basis: 0%;
+    flex-direction: column;
+	text-decoration: none;
+  }
+  .div-4 {
+    justify-content: center;
+    color: #363636;
+    text-align: center;
+    background-color: #36d986;
+    padding: 9px 5px;
+    font: 400 25px/30px Inter, sans-serif;
+	text-decoration: none;
+  }
+  @media (max-width: 991px) {
+    .div-4 {
+      padding-right: 1px;
+    }
+  }
+  .div-5 {
+    display: flex;
+    flex-grow: 1;
+    flex-basis: 0%;
+    flex-direction: column;
+	text-decoration: none;
+  }
+  .div-6 {
+    justify-content: center;
+    color: #363636;
+    text-align: center;
+    white-space: nowrap;
+    background-color: #36d986;
+    padding: 24px 3px;
+    font: 400 25px/30px Inter, sans-serif;
+	text-decoration: none;
+  }
+  @media (max-width: 991px) {
+    .div-6 {
+      white-space: initial;
+      padding-right: -2px;
+    }
+  }
+  .div-7 {
+    color: #363636;
+    text-align: center;
+    justify-content: center;
+    background-color: #36d986;
+    flex-grow: 1;
+    padding: 5px 11px;
+    font: 400 25px/30px Inter, sans-serif;
+	text-decoration: none;
+  }
+  .div-8 {
+    border-radius: 4px;
+    display: flex;
+    flex-grow: 1;
+    flex-basis: 0%;
+    flex-direction: column;
+	text-decoration: none;
+  }
+  .div-9 {
+    justify-content: center;
+    color: #363636;
+    text-align: center;
+    background-color: #36d986;
+    padding: 9px 16px;
+    font: 400 25px/30px Inter, sans-serif;
+	text-decoration: none;
+  }
+  @media (max-width: 991px) {
+    .div-9 {
+      padding-right: 1px;
+    }
+  }
+  .div-10 {
+    color: #363636;
+    text-align: center;
+    justify-content: center;
+    border-radius: 4px;
+    background-color: #36d986;
+    flex-grow: 1;
+    padding: 5px 15px;
+    font: 400 25px/30px Inter, sans-serif;
+	text-decoration: none;
+  }
+  .div-11 {
+    background-color: #36d986;
+    display: flex;
+    flex-grow: 1;
+    flex-basis: 0%;
+    flex-direction: column;
+	text-decoration: none;
+  }
+  .div-12 {
+    justify-content: center;
+    color: #363636;
+    text-align: center;
+    background-color: #36d986;
+    padding: 9px 6px;
+    font: 400 25px/30px Inter, sans-serif;
+	text-decoration: none;
+  }
+  .div-13 {
+    display: flex;
+    flex-grow: 1;
+    flex-basis: 0%;
+    flex-direction: column;
+	text-decoration: none;
+  }
+  .div-14 {
+    justify-content: center;
+    color: #363636;
+    text-align: center;
+    background-color: #36d986;
+    padding: 9px 11px;
+    font: 400 25px/30px Inter, sans-serif;
+	text-decoration: none;
+  }
+  @media (max-width: 991px) {
+    .div-14 {
+      padding-right: 1px;
+    }
+  }
+  .div-15 {
+    color: #000;
+    align-self: center;
+    margin-top: 78px;
+    white-space: nowrap;
+    font: 400 40px/48px Inter, sans-serif;
+	text-decoration: none;
+  }
+  @media (max-width: 991px) {
+    .div-15 {
+      margin-top: 40px;
+      white-space: initial;
+    }
+  }
+  .div-16 {
+    align-self: center;
+    color: #52525c;
+    margin-top: 246px;
+    width: 599px;
+    max-width: 100%;
+    font: 400 30px/45px Inter, sans-serif;
+	text-decoration: none;
+  }
+  @media (max-width: 991px) {
+    .div-16 {
+      margin-top: 40px;
+    }
+  }
+  .div-17 {
+    align-self: center;
+    border-radius: 8px;
+    border: 2px solid #d9d9d9;
+    background-color: #fff;
+    display: flex;
+    margin-top: 8px;
+    width: 599px;
+    max-width: 100%;
+    flex-direction: column;
+	text-decoration: none;
+  }
+  .div-18 {
+    border-radius: 8px;
+    border: 2px solid #d9d9d9;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    padding: 12px 16px;
+	text-decoration: none;
+  }
+  @media (max-width: 991px) {
+    .div-18 {
+      max-width: 100%;
+    }
+  }
+  .div-19 {
+    color: #000;
+    opacity: 0.5;
+    font: 400 15px/24px Inter, sans-serif;
+	text-decoration: none;
+  }
+  @media (max-width: 991px) {
+    .div-19 {
+      max-width: 100%;
+    }
+  }
+  .div-20 {
+    justify-content: center;
+    color: #363636;
+    text-align: center;
+    background-color: #1a8fdd;
+    align-self: center;
+    width: 300px;
+    max-width: 100%;
+    align-items: center;
+    margin: 186px 0 156px;
+    padding: 29px 20px;
+    font: 400 30px/36px Inter, sans-serif;
+	text-decoration: none;
+  }
+  @media (max-width: 991px) {
+    .div-20 {
+      margin: 40px 0;
+    }
+  }
+</style>

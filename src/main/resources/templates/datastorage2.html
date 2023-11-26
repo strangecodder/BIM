@@ -1,3 +1,8 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<header th:insert="header :: header"></header>
 <div class="div">
   <div class="div-14">Хранилище данных  Добавление</div>
   <div class="div-15">ID Поставщика</div>
@@ -10,6 +15,8 @@
   <div class="div-25"><input type="text" name="id" th:value="${id}"  placeholder="Поиск по deallistID" size="20" ></div>
   <button class="div-27" onclick="alert('Кнопка была нажата!')">Добавить</button>
 </div>
+</body>
+</html>
 <style>
   .div {
     background-color: #fff;

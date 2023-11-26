@@ -1,3 +1,8 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<header th:insert="header :: header"></header>
 <div class="div">
   
   <div class="div-13">Тестовая страница</div>
@@ -5,6 +10,8 @@
   <div class="div-15"><input type="text" name="id" th:value="${id}"  placeholder="Поиск по deallistID" size="20" ></div>
   <button class="div-17" onclick="alert('Кнопка была нажата!')">Изменить состояние</button>
 </div>
+</body>
+</html>
 <style>
   .div {
     background-color: #fff;

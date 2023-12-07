@@ -5,26 +5,46 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="static/styles/monitoring1.css">
   <link rel="stylesheet" href="static/styles/header.css">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
 </head>
 <body>
 <div class="div">
   <header th:insert="header :: header"></header>
   <div class="div-12">Мониторинг</div>
-  <div class="div-13">Ввод ID склада/объекта</div>
-  <div class="div-14">
-    <div class="div-15">
-      <div class="div-16"><input type="text" name="id" th:value="${id}"  placeholder="Поиск по id" size="20" ></div>
-    </div>
-  </div>
-  <div class="div-18">Ввод ID накладной</div>
-  <div class="div-19">
-    <div class="div-20">
-      <div class="div-21">
-        <div class="div-22"><input type="text" name="id" th:value="${id}"  placeholder="Поиск по id" size="20" ></div>
-      </div>
-    </div>
-  </div>
-  <button class="div-24" onclick="alert('Кнопка была нажата!')">Submit</button>
+  <form th:action="@{/search}" method="post">
+    <label for="param1">Материал:</label>
+    <input class="div-14" type="text" id="param1" name="param1" th:value="${param1}" />
+
+    <label for="param2">Склад</label>
+    <input class="div-19" type="text" id="param2" name="param2" th:value="${param2}" />
+
+    <button class="div-24" type="submit">Search</button>
+  </form>
+  <th:block th:if="${param1 != null and param2 != null}">
+    <table>
+      <thead>
+      <tr>
+        <th>Column 1</th>
+        <th>Column 2</th>
+        <!-- Add more columns as needed -->
+      </tr>
+      </thead>
+      <tbody>
+      <!-- Iterate over the search results and populate the table -->
+      <tr th:each="result : ${searchResults}">
+        <td th:text="${result.column1}"></td>
+        <td th:text="${result.column2}"></td>
+        <!-- Add more cells as needed -->
+      </tr>
+      </tbody>
+    </table>
+  </th:block>
+
+  <!-- Handle cases where only one parameter is present or the search results are empty -->
+  <th:block th:if="${(param1 != null and param2 == null) or (param1 == null and param2 != null) or searchResults.isEmpty()}">
+    <p>No results found.</p>
+  </th:block>
+
 </div>
 </body>
 </html>

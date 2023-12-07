@@ -31,3 +31,20 @@ build/
 
 ### VS Code ###
 .vscode/
+src/main/resources/templates/objectpage.html
+src/.DS_Store
+src/main/.DS_Store
+src/main/resources/.DS_Store
+src/main/resources/templates/.DS_Store
+src/main/resources/templates/objectpage.html
+src/main/resources/templates/static/.DS_Store
+src/main/resources/templates/static/styles/objectpage.css
+src/main/resources/templates/static/styles/warehousepage.css
+src/main/resources/templates/testpage.html
+.DS_Store
+src/main/resources/.DS_Store
+src/main/resources/templates/.DS_Store
+src/main/resources/templates/objectpage.html
+src/main/resources/templates/static/styles/objectpage.css
+src/main/resources/templates/static/styles/warehousepage.css
+src/main/resources/templates/testpage.html

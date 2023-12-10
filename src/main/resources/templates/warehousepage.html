@@ -1,330 +1,99 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="../static/styles/warehousepage.css">
+	<link rel="stylesheet" href="../static/styles/header.css">
+</head>
+<body>
 <div class="div">
-  <div class="div-2">
-    <div class="div-3"><a class="div-4" href="/orderpage">Хранилище <br /> данных</a></div>
-    <div class="div-5"><a class="div-6" href="/orderpage">Мониторинг</a></div>
-    <a class="div-7" href="/orderpage">Страница <br /> заказов</a>
-	<a class="div-8" href="/warehousepage">Страница <br /> объекта</a>
-    <a class="div-9" href="/testpage">Тест <br /> страница</a>
-    <div class="div-12"><a class="div-13" href="/testpage">Домашняя <br /> страница</a></div>
-  </div>
-  <div class="div-14">Страница склада</div>
-  <div class="div-15">ID Склада</div>
-<div class="div-16"><!DOCTYPE html>
-				<html lang="en">
-				<head>
-				  <meta charset="UTF-8">
-				  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-				  <title>Склад и сотрудники</title>
-				  <style>
-					/* Стили для всплывающего окна */
-					#popup {
-					  display: none;
-					  position: fixed;
-					  top: 59%;
-					  left: 50%;
-					  transform: translate(-50%, -50%);
-					  padding: 100px;
-					  background-color: #fff;
-					  border: 1px solid #ccc;
-					  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-					  z-index: 1000;
-					  font-size: 30px; 
+	<header th:insert="header :: header"></header>
+	<div class="div-14">Страница склада</div>
+	<div class="div-15">ID Склада</div>
+	<div class="div-16"><!DOCTYPE html>
+		<html lang="en">
+		<head>
+			<meta charset="UTF-8">
+			<meta name="viewport" content="width=device-width, initial-scale=1.0">
+			<title>Склад и сотрудники</title>
+			<style>
+				/* Стили для всплывающего окна */
+				#popup {
+					display: none;
+					position: absolute;
+					top: 390px;
+					left: 560px;
+					padding: 100px;
+					background-color: #fff;
+					border: 1px solid #ccc;
+					box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+					z-index: 1000;
+					font-size: 30px;
+				}
+			</style>
+		</head>
+		<body>
+
+		<label for="warehouseId">Введите ID склада:</label>
+		<input type="text" id="warehouseId">
+		<button onclick="showInfo()">Показать информацию</button>
+
+		<!-- Всплывающее окно для вывода информации -->
+		<div id="popup"></div>
+
+		<script>
+			function showInfo() {
+				// Получаем значение ID из input
+				var warehouseId = document.getElementById("warehouseId").value;
+
+				// Предположим, что у вас есть данные о складе и сотрудниках
+				var warehouseData = {
+					"1": {
+						"address": "Адрес склада 1",
+						"productCount": 100
+					},
+					"2": {
+						"address": "Адрес склада 2",
+						"productCount": 150
 					}
-				  </style>
-				</head>
-				<body>
+				};
 
-				  <label for="warehouseId">Введите ID склада:</label>
-				  <input type="text" id="warehouseId">
-				  <button onclick="showInfo()">Показать информацию</button>
+				var employeesData = {
+					"1": ["Иванов Иван", "Петров Петр"],
+					"2": ["Сидоров Сидор", "Александров Александр"]
+				};
 
-				  <!-- Всплывающее окно для вывода информации -->
-				  <div id="popup"></div>
+				// Проверяем, существует ли введенный ID в данных
+				if (warehouseData.hasOwnProperty(warehouseId)) {
+					// Формируем информацию о складе
+					var warehouseInfo = `<p><strong>Адрес склада:</strong> ${warehouseData[warehouseId].address}</p>`;
+					warehouseInfo += `<p><strong>Количество товаров:</strong> ${warehouseData[warehouseId].productCount}</p>`;
 
-				  <script>
-					function showInfo() {
-					  // Получаем значение ID из input
-					  var warehouseId = document.getElementById("warehouseId").value;
-
-					  // Предположим, что у вас есть данные о складе и сотрудниках
-					  var warehouseData = {
-						"1": {
-						  "address": "Адрес склада 1",
-						  "productCount": 100
-						},
-						"2": {
-						  "address": "Адрес склада 2",
-						  "productCount": 150
-						}
-					  };
-
-					  var employeesData = {
-						"1": ["Иванов Иван", "Петров Петр"],
-						"2": ["Сидоров Сидор", "Александров Александр"]
-					  };
-
-					  // Проверяем, существует ли введенный ID в данных
-					  if (warehouseData.hasOwnProperty(warehouseId)) {
-						// Формируем информацию о складе
-						var warehouseInfo = `<p><strong>Адрес склада:</strong> ${warehouseData[warehouseId].address}</p>`;
-						warehouseInfo += `<p><strong>Количество товаров:</strong> ${warehouseData[warehouseId].productCount}</p>`;
-
-						// Формируем список сотрудников
-						var employeesList = "<ul>";
-						for (var i = 0; i < employeesData[warehouseId].length; i++) {
-						  employeesList += `<li>${employeesData[warehouseId][i]}</li>`;
-						}
-						employeesList += "</ul>";
-
-						// Выводим информацию во всплывающем окне
-						var popupContent = warehouseInfo + "<h3>Сотрудники:</h3>" + employeesList;
-						document.getElementById("popup").innerHTML = popupContent;
-
-						// Показываем всплывающее окно
-						document.getElementById("popup").style.display = "block";
-					  } else {
-						alert("Склад с указанным ID не найден");
-					  }
+					// Формируем список сотрудников
+					var employeesList = "<ul>";
+					for (var i = 0; i < employeesData[warehouseId].length; i++) {
+						employeesList += `<li>${employeesData[warehouseId][i]}</li>`;
 					}
-				  </script>
+					employeesList += "</ul>";
 
-				</body>
-				</html>
+					// Выводим информацию во всплывающем окне
+					var popupContent = warehouseInfo + "<h3>Сотрудники:</h3>" + employeesList;
+					document.getElementById("popup").innerHTML = popupContent;
+
+					// Показываем всплывающее окно
+					document.getElementById("popup").style.display = "block";
+				} else {
+					alert("Склад с указанным ID не найден");
+				}
+			}
+		</script>
+
+		</body>
+		</html>
+	</div>
+
 </div>
-  
-</div>
-<style>
-  .div {
-    background-color: #fff;
-    display: flex;
-    flex-direction: column;
-  }
-  .div-2 {
-    background-color: #01939a;
-    align-self: stretch;
-    display: flex;
-    width: 100%;
-    justify-content: space-between;
-    gap: 20px;
-    padding: 15px 11px 15px 0;
-	text-decoration: none;
-  }
-  @media (max-width: 991px) {
-    .div-2 {
-      max-width: 100%;
-      flex-wrap: wrap;
-      padding-left: 20px;
-    }
-  }
-  .div-3 {
-    display: flex;
-    flex-grow: 1;
-    flex-basis: 0%;
-    flex-direction: column;
-	text-decoration: none;
-  }
-  .div-4 {
-    justify-content: center;
-    color: #363636;
-    text-align: center;
-    background-color: #36d986;
-    padding: 9px 5px;
-    font: 400 25px/30px Inter, sans-serif;
-	text-decoration: none;
-  }
-  @media (max-width: 991px) {
-    .div-4 {
-      padding-right: 1px;
-    }
-  }
-  .div-5 {
-    display: flex;
-    flex-grow: 1;
-    flex-basis: 0%;
-    flex-direction: column;
-	text-decoration: none;
-  }
-  .div-6 {
-    justify-content: center;
-    color: #363636;
-    text-align: center;
-    white-space: nowrap;
-    background-color: #36d986;
-    padding: 24px 3px;
-    font: 400 25px/30px Inter, sans-serif;
-	text-decoration: none;
-  }
-  @media (max-width: 991px) {
-    .div-6 {
-      white-space: initial;
-      padding-right: -2px;
-    }
-  }
-  .div-7 {
-    color: #363636;
-    text-align: center;
-    justify-content: center;
-    background-color: #36d986;
-    flex-grow: 1;
-    padding: 5px 11px;
-    font: 400 25px/30px Inter, sans-serif;
-	text-decoration: none;
-  }
-  .div-8 {
-    color: #363636;
-    text-align: center;
-    justify-content: center;
-    border-radius: 4px;
-    background-color: #36d986;
-    flex-grow: 1;
-    padding: 5px 15px;
-    font: 400 25px/30px Inter, sans-serif;
-	text-decoration: none;
-  }
-  @media (max-width: 991px) {
-    .div-8 {
-      padding-right: -1px;
-    }
-  }
-  .div-9 {
-    color: #363636;
-    text-align: center;
-    justify-content: center;
-    border-radius: 4px;
-    background-color: #36d986;
-    flex-grow: 1;
-    padding: 5px 15px;
-    font: 400 25px/30px Inter, sans-serif;
-	text-decoration: none;
-  }
-  .div-10 {
-    background-color: #36d986;
-    display: flex;
-    flex-grow: 1;
-    flex-basis: 0%;
-    flex-direction: column;
-	text-decoration: none;
-  }
-  .div-11 {
-    justify-content: center;
-    color: #363636;
-    text-align: center;
-    background-color: #36d986;
-    padding: 9px 6px;
-    font: 400 25px/30px Inter, sans-serif;
-	text-decoration: none;
-  }
-  .div-12 {
-    display: flex;
-    flex-grow: 1;
-    flex-basis: 0%;
-    flex-direction: column;
-	text-decoration: none;
-  }
-  .div-13 {
-    justify-content: center;
-    color: #363636;
-    text-align: center;
-    background-color: #36d986;
-    padding: 9px 11px;
-    font: 400 25px/30px Inter, sans-serif;
-	text-decoration: none;
-  }
-  @media (max-width: 991px) {
-    .div-13 {
-      padding-right: 1px;
-    }
-  }
-  .div-14 {
-    color: #000;
-    align-self: center;
-    margin-top: 100px;
-    white-space: nowrap;
-    font: 400 40px/48px Inter, sans-serif;
-	text-decoration: none;
-  }
-  @media (max-width: 991px) {
-    .div-14 {
-      margin-top: 40px;
-      white-space: initial;
-    }
-  }
-  .div-15 {
-    align-self: center;
-    color: #52525c;
-    margin-top: 72px;
-    width: 599px;
-    max-width: 100%;
-    font: 400 30px/45px Inter, sans-serif;
-	text-decoration: none;
-  }
-  @media (max-width: 991px) {
-    .div-15 {
-      margin-top: 40px;
-    }
-  }
-  .div-16 {
-    align-self: center;
-    border-radius: 8px;
-    border: 2px solid #d9d9d9;
-    background-color: #fff;
-    display: flex;
-    margin-top: 8px;
-    width: 599px;
-    max-width: 100%;
-    flex-direction: column;
-    padding: 12px 16px;
-	text-decoration: none;
-  }
-  .div-17 {
-    color: #000;
-    opacity: 0.5;
-    font: 400 15px/24px Inter, sans-serif;
-	text-decoration: none;
-  }
-  @media (max-width: 991px) {
-    .div-17 {
-      max-width: 100%;
-    }
-  }
-  .div-18 {
-    justify-content: center;
-    color: #363636;
-    text-align: center;
-    background-color: #1a8fdd;
-    align-self: center;
-    margin-top: 102px;
-    width: 547px;
-    max-width: 100%;
-    padding: 4px 20px;
-    font: 400 30px/36px Inter, sans-serif;
-	text-decoration: none;
-  }
-  @media (max-width: 991px) {
-    .div-18 {
-      max-width: 100%;
-      margin-top: 40px;
-      padding-right: -5px;
-    }
-  }
-  .div-19 {
-    justify-content: center;
-    color: #363636;
-    text-align: center;
-    background-color: #1a8fdd;
-    align-self: center;
-    width: 549px;
-    max-width: 100%;
-    margin: 44px 0 261px;
-    padding: 3px 16px;
-    font: 400 30px/36px Inter, sans-serif;
-	text-decoration: none;
-  }
-  @media (max-width: 991px) {
-    .div-19 {
-      max-width: 100%;
-      padding-right: -1px;
-      margin: 40px 0;
-    }
-  }
-</style>
+</body>
+</html>

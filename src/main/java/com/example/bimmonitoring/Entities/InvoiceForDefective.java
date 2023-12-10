@@ -6,7 +6,7 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 
 @Entity
-public class InfoiceForDefective {
+public class InvoiceForDefective {
 
     @Id
     private int id;

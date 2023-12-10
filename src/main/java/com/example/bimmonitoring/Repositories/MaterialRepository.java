@@ -6,7 +6,7 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface MaterialRepository extends CrudRepository<Material,String> {
+public interface MaterialRepository extends CrudRepository<Material,Integer> {
 
     @Query("SELECT name FROM Material where name=?")
     Material queryByName(String string);

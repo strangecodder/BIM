@@ -6,7 +6,7 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface WishListRepository extends CrudRepository<WishList,String> {
+public interface WishListRepository extends CrudRepository<WishList,Integer> {
 
     @Query("SELECT wl.bid_time,wl.quantity,wl.state FROM WishList wl WHERE wl.id = ?")
     WishList getWishListById();

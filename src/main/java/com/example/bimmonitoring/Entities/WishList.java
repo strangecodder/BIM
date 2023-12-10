@@ -21,7 +21,4 @@ public class WishList {
 
     private Date bid_time;
 
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "wish_list_id",referencedColumnName = "wish_list_id")
-    private Set<DealList> dealLists;
 }

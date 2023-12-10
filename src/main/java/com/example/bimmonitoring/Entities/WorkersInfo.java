@@ -2,11 +2,9 @@ package com.example.bimmonitoring.Entities;
 
 import jakarta.persistence.*;
 
-import java.util.Set;
-
 @Entity
 @Table(name = "workers_info")
-public class WorkerInfo {
+public class WorkersInfo {
 
     @Id
     private int id;

@@ -15,6 +15,6 @@ public class WayBill {
     private Set<Provider> provider;
 
     @OneToMany
-    @JoinColumn(name = "transport_id",referencedColumnName = "transport_id")
+    @JoinColumn(name = "transport_id",referencedColumnName = "id")
     private Set<Transport> transports;
 }

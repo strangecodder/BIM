@@ -12,7 +12,7 @@ public class DealList {
     private int id;
 
     @OneToOne
-    @JoinColumn(name = "wish_list_id",referencedColumnName = "wish_list_id")
+    @JoinColumn(name = "wish_list_id",referencedColumnName = "id")
     private WishList custom;
 
     private int delivery_id;

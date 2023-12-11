@@ -15,6 +15,6 @@ public class InvoiceForDefective {
     private Set<Product> product;
 
     @OneToMany
-    @JoinColumn(name = "recipient_id",referencedColumnName = "recipient_id")
+    @JoinColumn(name = "recipient_id",referencedColumnName = "id")
     private Set<Recipient> recipient;
 }

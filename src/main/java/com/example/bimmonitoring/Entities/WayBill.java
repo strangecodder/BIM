@@ -2,15 +2,19 @@ package com.example.bimmonitoring.Entities;
 
 import jakarta.persistence.*;
 
+import java.util.Set;
+
 @Entity
 public class WayBill {
 
     @Id
     private int id;
 
-    @ManyToOne
+    @OneToMany
     @JoinColumn(name = "providerId",referencedColumnName = "id")
-    private Provider provider;
+    private Set<Provider> provider;
 
-    private int transportId;
+    @OneToMany
+    @JoinColumn(name = "transport_id",referencedColumnName = "transport_id")
+    private Set<Transport> transports;
 }

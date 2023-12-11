@@ -2,6 +2,8 @@ package com.example.bimmonitoring.Entities;
 
 import jakarta.persistence.*;
 
+import java.util.Set;
+
 @Entity
 @Table(name = "shipping_invoice")
 public class ShippingInvoice {
@@ -9,11 +11,11 @@ public class ShippingInvoice {
     @Id
     private int id;
 
-    @ManyToOne
+    @OneToMany
     @JoinColumn(name = "purchace_invoice_id",referencedColumnName = "id")
-    private PurchaseInvoice purchaseInvoice;
+    private Set<PurchaseInvoice> purchaseInvoice;
 
-    @ManyToOne
+    @OneToMany
     @JoinColumn(name = "alocation_id",referencedColumnName = "id")
-    private Alocation alocation;
+    private Set<Alocation> alocation;
 }

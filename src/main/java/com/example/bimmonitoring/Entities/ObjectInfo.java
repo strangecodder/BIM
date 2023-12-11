@@ -1,9 +1,8 @@
 package com.example.bimmonitoring.Entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.*;
+
+import java.util.Set;
 
 @Entity
 public class ObjectInfo {
@@ -17,7 +16,7 @@ public class ObjectInfo {
 
     private String organisation;
 
-    @ManyToOne
+    @OneToMany
     @JoinColumn(name = "alocation_id",referencedColumnName = "id")
-    private Alocation alocation;
+    private Set<Alocation> alocation;
 }

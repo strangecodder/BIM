@@ -16,5 +16,7 @@ public class Shelf {
     @JoinColumn(name = "product_id",referencedColumnName = "product_id")
     private Product product;
 
-
+    @OneToOne
+    @JoinColumn(name = "warehouse_id", referencedColumnName = "warehouse_id")
+    private Warehouse warehouse;
 }

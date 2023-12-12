@@ -13,7 +13,7 @@ public class Shelf {
     private int freeSpace;
 
     @OneToOne
-    @JoinColumn(name = "product_id",referencedColumnName = "product_id")
+    @JoinColumn(name = "product_id",referencedColumnName = "id")
     private Product product;
 
     @OneToOne

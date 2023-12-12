@@ -5,7 +5,6 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "material")
 public class Material {
 
     @Id

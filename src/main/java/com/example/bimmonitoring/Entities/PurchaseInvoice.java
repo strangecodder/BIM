@@ -23,9 +23,9 @@ public class PurchaseInvoice {
     @JoinColumn(name = "product_id",referencedColumnName = "id")
     private Set<Product> product;
 
-    @OneToMany
-    @JoinColumn(name = "provider_id",referencedColumnName = "id")
-    private Set<Provider> provider;
+//    @OneToMany
+//    @JoinColumn(name = "provider_id",referencedColumnName = "id")
+//    private Set<Provider> provider;
 
 
 }

@@ -12,15 +12,17 @@
 <div class="div">
   <header th:insert="header :: header"></header>
   <div class="div-14">Хранилище данных  Добавление</div>
-  <div class="div-15">ID Поставщика</div>
-  <input class="div-16" type="text" name="id" th:value="${id}"  placeholder="Поиск по id" size="20" >
-  <div class="div-18">ID Ответственного сотрудника</div>
-  <input class="div-19" type="text" name="id" th:value="${id}"  placeholder="Поиск по id" size="20" >
-  <div class="div-21">ID продуктов</div>
-  <input class="div-22" type="text" name="id" th:value="${id}"  placeholder="Поиск по id" size="20" >
-  <div class="div-24">ID Deal List</div>
-  <input class="div-25" type="text" name="id" th:value="${id}"  placeholder="Поиск по deallistID" size="20" >
-  <button class="div-27" onclick="alert('Кнопка была нажата!')">Добавить</button>
+  <form action="/datastorage2add" method="post">
+    <div class="div-15">ID Поставщика</div>
+    <input class="div-16" type="text" name="id" th:value="${id}"  placeholder="Поиск по id" size="20" >
+    <div class="div-18">ID Ответственного сотрудника</div>
+    <input class="div-19" type="text" name="id" th:value="${id}"  placeholder="Поиск по id" size="20" >
+    <div class="div-21">ID продуктов</div>
+    <input class="div-22" type="text" name="id" th:value="${id}"  placeholder="Поиск по id" size="20" >
+    <div class="div-24">ID Deal List</div>
+    <input class="div-25" type="text" name="id" th:value="${id}"  placeholder="Поиск по deallistID" size="20" >
+    <button class="div-27" onclick="alert('Кнопка была нажата!')">Добавить</button>
+  </form>
 </div>
 <style>
     .div {

@@ -1,23 +1,29 @@
-<!DOCTYPE html>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <html xmlns:th="http://www.thymeleaf.org">
-
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../static/styles/datastorage.css">
-    <link rel="stylesheet" href="../static/styles/header.css">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../static/styles/datastorage2.css">
+  <link rel="stylesheet" href="../static/styles/header.css">
 </head>
-
 <body>
 <header th:insert="blocks/header :: header"></header>
 <div class="div">
 
-    <div class="div-14">Страница склада</div>
-    <a class="div-18" href="warehouseadd">Добавить</a>
-    <a class="div-19" href="warehousepage">Проверить</a>
+  <div class="div-14">Сотрудники  Добавление</div>
+  <form action="/employeeadd" method="post">
+    <div class="div-15">ID сотрудника</div>
+    <input class="div-16" type="text" name="id" th:value="${id}"  placeholder="Поиск по id" size="20" >
+    <div class="div-18">ФИО</div>
+    <input class="div-19" type="text" name="id" th:value="${id}"  placeholder="Поиск по id" size="20" >
+    <div class="div-21">Должность</div>
+    <input class="div-22" type="text" name="id" th:value="${id}"  placeholder="Поиск по id" size="20" >
+    <button class="div-27" onclick="alert('Кнопка была нажата!')">Добавить</button>
+  </form>
 </div>
 <style>
- .div {
+    .div {
     background-color: #fff;
     display: flex;
     flex-direction: column;
@@ -29,8 +35,7 @@
     width: 100%;
     justify-content: space-between;
     gap: 20px;
-    padding: 15px 6 15px 2;
-	text-decoration: none;
+    padding: 15px 0 15px 0;
   }
   @media (max-width: 991px) {
     .div-2 {
@@ -161,22 +166,21 @@
   }
   .div-14 {
     color: #000;
+    max-width: 382px;
     align-self: center;
     margin-top: 102px;
-    white-space: nowrap;
     font: 400 40px/48px Inter, sans-serif;
 	text-decoration: none;
   }
   @media (max-width: 991px) {
     .div-14 {
       margin-top: 40px;
-      white-space: initial;
     }
   }
   .div-15 {
     align-self: center;
     color: #52525c;
-    margin-top: 93px;
+    margin-top: 46px;
     width: 600px;
     max-width: 100%;
     font: 400 30px/45px Inter, sans-serif;
@@ -204,7 +208,6 @@
     color: #000;
     opacity: 0.5;
     font: 400 15px/24px Inter, sans-serif;
-	text-decoration: none;
   }
   @media (max-width: 991px) {
     .div-17 {
@@ -212,54 +215,126 @@
     }
   }
   .div-18 {
+    align-self: center;
+    color: #52525c;
+    margin-top: 28px;
+    width: 600px;
+    max-width: 100%;
+    font: 400 30px/45px Inter, sans-serif;
+	text-decoration: none;
+  }
+  .div-19 {
+    align-self: center;
+    border-radius: 8px;
+    border: 2px solid #d9d9d9;
+    background-color: #fff;
+    display: flex;
+    margin-top: 8px;
+    width: 600px;
+    max-width: 100%;
+    flex-direction: column;
+    padding: 12px 16px;
+	text-decoration: none;
+  }
+  .div-20 {
+    color: #000;
+    opacity: 0.5;
+    font: 400 15px/24px Inter, sans-serif;
+	text-decoration: none;
+  }
+  @media (max-width: 991px) {
+    .div-20 {
+      max-width: 100%;
+    }
+  }
+  .div-21 {
+    align-self: center;
+    color: #52525c;
+    margin-top: 28px;
+    width: 600px;
+    max-width: 100%;
+    font: 400 30px/45px Inter, sans-serif;
+	text-decoration: none;
+  }
+  .div-22 {
+    align-self: center;
+    border-radius: 8px;
+    border: 2px solid #d9d9d9;
+    background-color: #fff;
+    display: flex;
+    margin-top: 8px;
+    width: 600px;
+    max-width: 100%;
+    flex-direction: column;
+    padding: 12px 16px;
+	text-decoration: none;
+  }
+  .div-23 {
+    color: #000;
+    opacity: 0.5;
+    font: 400 15px/24px Inter, sans-serif;
+  }
+  @media (max-width: 991px) {
+    .div-23 {
+      max-width: 100%;
+    }
+  }
+  .div-24 {
+    align-self: center;
+    color: #52525c;
+    margin-top: 28px;
+    width: 600px;
+    max-width: 100%;
+    font: 400 30px/45px Inter, sans-serif;
+	text-decoration: none;
+  }
+  .div-25 {
+    align-self: center;
+    border-radius: 8px;
+    border: 2px solid #d9d9d9;
+    background-color: #fff;
+    display: flex;
+    margin-top: 8px;
+    width: 600px;
+    max-width: 100%;
+    flex-direction: column;
+    padding: 12px 16px;
+	text-decoration: none;
+  }
+  .div-26 {
+    color: #000;
+    opacity: 0.5;
+    font: 400 15px/24px Inter, sans-serif;
+  }
+  @media (max-width: 991px) {
+    .div-26 {
+      max-width: 100%;
+    }
+  }
+  .div-27 {
     justify-content: center;
     color: #363636;
     text-align: center;
     background-color: #1a8fdd;
     align-self: center;
-    margin-top: 96px;
     width: 547px;
     max-width: 100%;
     align-items: center;
+    margin: 60px 0 73px;
     padding: 22px 20px;
     font: 400 30px/36px Inter, sans-serif;
-	text-decoration: none;
 	cursor: pointer;
+	text-decoration: none;
   }
   @media (max-width: 991px) {
-    .div-18 {
-      margin-top: 40px;
-    }
-  }
-  .div-19 {
-    justify-content: center;
-    color: #363636;
-    text-align: center;
-    background-color: #1a8fdd;
-    align-self: center;
-    width: 549px;
-    max-width: 100%;
-    align-items: center;
-    margin: 44px 0 247px;
-    padding: 22px 20px;
-    font: 400 30px/36px Inter, sans-serif;
-	text-decoration: none;
-	cursor: pointer;
-  }
-  @media (max-width: 991px) {
-    .div-19 {
+    .div-27 {
       margin: 40px 0;
     }
   }
 
 
 
-
-
-
-
-
-  .hdiv {
+    .hdiv {
     background-color: #01939a;
     display: flex;
     align-items: flex-start;
@@ -428,6 +503,4 @@
   }
 </style>
 </body>
-
 </html>
-

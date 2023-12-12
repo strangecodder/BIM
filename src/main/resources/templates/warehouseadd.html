@@ -8,9 +8,9 @@
   <link rel="stylesheet" href="../static/styles/header.css">
 </head>
 <body>
-
+<header th:insert="blocks/header :: header"></header>
 <div class="div">
-  <header th:insert="header :: header"></header>
+
   <div class="div-14">Складское помещение  Добавление</div>
   <form action="/warehouseadd" method="post">
     <div class="div-15">ID Склада</div>

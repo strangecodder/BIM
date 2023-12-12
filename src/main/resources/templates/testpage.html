@@ -7,9 +7,9 @@
   <link rel="stylesheet" href="../static/styles/header.css">
 </head>
 <body>
-
+<header th:insert="blocks/header :: header"></header>
 <div class="div">
-  <header th:insert="header :: header"></header>
+
   <div class="div-13">Тестовая страница</div>
   <div class="div-14">Wishlist ID</div>
   <div class="div-15"><input type="text" name="id" th:value="${id}"  placeholder="Поиск по deallistID" size="20" ></div>

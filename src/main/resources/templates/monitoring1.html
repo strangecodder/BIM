@@ -8,8 +8,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
 </head>
 <body>
+<header th:insert="blocks/header :: header"></header>
 <div class="div">
-  <header th:insert="header :: header"></header>
   <div class="div-12">Мониторинг</div>
   <form th:action="@{/search}" method="post">
     <label for="param1">Материал:</label>

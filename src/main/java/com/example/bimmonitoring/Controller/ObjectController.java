@@ -10,6 +10,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/object")
 public class ObjectController {
 
+    @GetMapping("/add")
+    public String getObjectAdd(){
+        return "objectpageadd";
+    }
+
+    @GetMapping("/init")
+    public String getObjectInit(){
+        return "objectpageinit";
+    }
+
     @GetMapping("/")
     public String getObject(){
         return "objectpage";

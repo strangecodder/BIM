@@ -1,16 +1,19 @@
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../static/styles/Desktop1.css">
+    <link rel="stylesheet" href="../static/styles/datastorage.css">
     <link rel="stylesheet" href="../static/styles/header.css">
 </head>
+
 <body>
 <div class="div">
     <header th:insert="blocks/header :: header"></header>
-    <div class="div-11">Домашняя страница</div>
+    <div class="div-14">Страница объекта</div>
+    <button class="div-18" onclick="alert('Кнопка была нажата!')">Добавить</button>
+    <button class="div-19" onclick="alert('Кнопка была нажата!')">Проверить</button>
 </div>
 <style>
     .div {
@@ -20,11 +23,12 @@
     }
     .div-2 {
         background-color: #01939a;
+        align-self: stretch;
         display: flex;
         width: 100%;
         justify-content: space-between;
         gap: 20px;
-        padding: 15px 11px 15px 0;
+        padding: 15px 6 15px 2;
         text-decoration: none;
     }
     @media (max-width: 991px) {
@@ -33,14 +37,6 @@
             flex-wrap: wrap;
             padding-left: 20px;
         }
-    }
-    .img {
-        aspect-ratio: 2.14;
-        object-fit: contain;
-        object-position: center;
-        width: 100%;
-        overflow: hidden;
-        flex: 1;
     }
     .div-3 {
         display: flex;
@@ -114,6 +110,17 @@
         }
     }
     .div-9 {
+        color: #363636;
+        text-align: center;
+        justify-content: center;
+        border-radius: 4px;
+        background-color: #36d986;
+        flex-grow: 1;
+        padding: 5px 15px;
+        font: 400 25px/30px Inter, sans-serif;
+        text-decoration: none;
+    }
+    .div-10 {
         background-color: #36d986;
         display: flex;
         flex-grow: 1;
@@ -121,34 +128,133 @@
         flex-direction: column;
         text-decoration: none;
     }
-    .div-10 {
+    .div-11 {
         justify-content: center;
         color: #363636;
         text-align: center;
         background-color: #36d986;
-        padding: 9px 16px;
+        padding: 9px 6px;
+        font: 400 25px/30px Inter, sans-serif;
+        text-decoration: none;
+    }
+    .div-12 {
+        display: flex;
+        flex-grow: 1;
+        flex-basis: 0%;
+        flex-direction: column;
+        text-decoration: none;
+    }
+    .div-13 {
+        justify-content: center;
+        color: #363636;
+        text-align: center;
+        background-color: #36d986;
+        padding: 9px 11px;
         font: 400 25px/30px Inter, sans-serif;
         text-decoration: none;
     }
     @media (max-width: 991px) {
-        .div-10 {
+        .div-13 {
             padding-right: 1px;
         }
     }
-    .div-11 {
+    .div-14 {
         color: #000;
         align-self: center;
+        margin-top: 102px;
         white-space: nowrap;
-        margin: 53px 0 667px;
         font: 400 40px/48px Inter, sans-serif;
         text-decoration: none;
     }
     @media (max-width: 991px) {
-        .div-11 {
+        .div-14 {
+            margin-top: 40px;
             white-space: initial;
+        }
+    }
+    .div-15 {
+        align-self: center;
+        color: #52525c;
+        margin-top: 93px;
+        width: 600px;
+        max-width: 100%;
+        font: 400 30px/45px Inter, sans-serif;
+        text-decoration: none;
+    }
+    @media (max-width: 991px) {
+        .div-15 {
+            margin-top: 40px;
+        }
+    }
+    .div-16 {
+        align-self: center;
+        border-radius: 8px;
+        border: 2px solid #d9d9d9;
+        background-color: #fff;
+        display: flex;
+        margin-top: 8px;
+        width: 600px;
+        max-width: 100%;
+        flex-direction: column;
+        padding: 12px 16px;
+        text-decoration: none;
+    }
+    .div-17 {
+        color: #000;
+        opacity: 0.5;
+        font: 400 15px/24px Inter, sans-serif;
+        text-decoration: none;
+    }
+    @media (max-width: 991px) {
+        .div-17 {
+            max-width: 100%;
+        }
+    }
+    .div-18 {
+        justify-content: center;
+        color: #363636;
+        text-align: center;
+        background-color: #1a8fdd;
+        align-self: center;
+        margin-top: 96px;
+        width: 547px;
+        max-width: 100%;
+        align-items: center;
+        padding: 22px 20px;
+        font: 400 30px/36px Inter, sans-serif;
+        text-decoration: none;
+        cursor: pointer;
+    }
+    @media (max-width: 991px) {
+        .div-18 {
+            margin-top: 40px;
+        }
+    }
+    .div-19 {
+        justify-content: center;
+        color: #363636;
+        text-align: center;
+        background-color: #1a8fdd;
+        align-self: center;
+        width: 549px;
+        max-width: 100%;
+        align-items: center;
+        margin: 44px 0 247px;
+        padding: 22px 20px;
+        font: 400 30px/36px Inter, sans-serif;
+        text-decoration: none;
+        cursor: pointer;
+    }
+    @media (max-width: 991px) {
+        .div-19 {
             margin: 40px 0;
         }
     }
+
+
+
+
+
 
 
 
@@ -321,4 +427,5 @@
     }
 </style>
 </body>
+
 </html>

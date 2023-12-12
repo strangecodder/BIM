@@ -14,4 +14,10 @@ public class Warehouse {
     private String address;
 
     private int numberOfFreeCells;
+
+    Warehouse(){}
+
+    public Warehouse(String name) {
+        this.name = name;
+    }
 }

@@ -120,7 +120,7 @@ div {
         padding-right: 1px;
     }
 }
-.div-11 {
+ div-11 {
     color: #000;
     align-self: center;
     white-space: nowrap;
@@ -129,7 +129,7 @@ div {
     text-decoration: none;
 }
 @media (max-width: 991px) {
-    .div-11 {
+    div-11 {
         white-space: initial;
         margin: 40px 0;
     }

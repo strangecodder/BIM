@@ -1,8 +1,6 @@
 package com.example.bimmonitoring.Entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 import java.util.Date;
 
@@ -17,5 +15,7 @@ public class Alocation {
 
     private Date real_shipping_time;
 
-    private int object_id;
+    @ManyToOne
+    @JoinColumn(name = "object_id", referencedColumnName = "object_id")
+    private ObjectInfo objectId;
 }

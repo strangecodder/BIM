@@ -8,37 +8,34 @@ import java.util.Set;
 public class ObjectInfo {
 
     @Id
+    @Column(name = "object_id")
     private int id;
 
-    private String objectAddress;
+    @Column(name = "object_adress")
+    private String objectAdress;
 
-    private int workers_quantity;
+    private int workersQuantity;
 
     private String organisation;
 
-    @OneToMany
-    @JoinColumn(name = "alocation_id",referencedColumnName = "id")
-    private Set<Alocation> alocation;
+//    @OneToMany
+//    @JoinColumn(name = "alocationId",referencedColumnName = "id")
+//    private Set<Alocation> alocation;
 
     public int getId() {
         return id;
     }
 
     public String getObjectAddress() {
-        return objectAddress;
+        return objectAdress;
     }
 
     public int getWorkers_quantity() {
-        return workers_quantity;
+        return workersQuantity;
     }
 
     public String getOrganisation() {
         return organisation;
     }
-
-    public Set<Alocation> getAlocation() {
-        return alocation;
-    }
-
 
 }

@@ -7,10 +7,10 @@ import com.example.bimmonitoring.Repositories.ObjectInfoRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.ArrayList;
+import java.util.Optional;
 
 @Slf4j
 @Controller
@@ -44,6 +44,15 @@ public class ObjectController {
             @RequestParam String organisation,  Model model){
         ObjectInfo objectInfo = new ObjectInfo(objectAddress, workers_quantity, organisation);
         objectInfoRepository.save(objectInfo);
-        return "redirect:/objectpage";
+        return "redirect:/object/show";
+    }
+
+    @GetMapping("/show/{id}")
+    public String getDetails(@PathVariable(value = "id") int id, Model model){
+        Optional<ObjectInfo> infoOptional = objectInfoRepository.findById(id);
+        ArrayList<ObjectInfo> objectInfoArrayList = new ArrayList<>();
+        infoOptional.ifPresent(objectInfoArrayList::add);
+        model.addAttribute("infoOptional", objectInfoArrayList);
+        return "details";
     }
 }

@@ -22,7 +22,7 @@ public class ObjectInfo {
 //    @JoinColumn(name = "alocationId",referencedColumnName = "id")
 //    private Set<Alocation> alocation;
 
-    ObjectInfo(){}
+    public ObjectInfo(){}
     public ObjectInfo(String objectAdress, int workersQuantity, String organisation){
         this.objectAdress = objectAdress;
         this.organisation = organisation;

@@ -1,6 +1,7 @@
 package com.example.bimmonitoring.Controller;
 
 //import ch.qos.logback.core.model.Model;
+import jakarta.websocket.server.PathParam;
 import org.springframework.ui.Model;
 import com.example.bimmonitoring.Entities.ObjectInfo;
 import com.example.bimmonitoring.Repositories.ObjectInfoRepository;
@@ -19,8 +20,6 @@ public class ObjectController {
 
     @Autowired
     private ObjectInfoRepository objectInfoRepository;
-
-
 
     @GetMapping("/add")
     public String getObjectAdd(){
@@ -47,8 +46,24 @@ public class ObjectController {
         return "redirect:/object/show";
     }
 
+    @GetMapping("/show/{id}/edit")
+    public String objectEdit(@PathParam(value = "id") int id, Model model){
+        if(!objectInfoRepository.existsById(id)){
+            return "redirect:/";
+        }
+
+        Optional<ObjectInfo> infoOptional = objectInfoRepository.findById(id);
+        ArrayList<ObjectInfo> objectInfoArrayList = new ArrayList<>();
+        infoOptional.ifPresent(objectInfoArrayList::add);
+        model.addAttribute("infoOptional", objectInfoArrayList);
+        return "details";
+    }
     @GetMapping("/show/{id}")
     public String getDetails(@PathVariable(value = "id") int id, Model model){
+        if(!objectInfoRepository.existsById(id)){
+            return "redirect:/";
+        }
+
         Optional<ObjectInfo> infoOptional = objectInfoRepository.findById(id);
         ArrayList<ObjectInfo> objectInfoArrayList = new ArrayList<>();
         infoOptional.ifPresent(objectInfoArrayList::add);

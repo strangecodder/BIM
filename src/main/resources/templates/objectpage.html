@@ -12,7 +12,7 @@
       <h3 th:text="${inf.objectAddress}"/>
       <h3 th:text="${inf.organisation}"/>
       <h3 th:text="${inf.workers_quantity}"/>
-      <a href="'/object/show/' + ${inf.id}">Подробнее</a>
+      <a th:href="@{/object/show/{id}(id=${inf.id})}" class="btn btn-warning">Подробнее</a>
   </div>
 </div>
     </body>

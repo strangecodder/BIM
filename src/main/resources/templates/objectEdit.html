@@ -7,14 +7,14 @@
 </head>
 <body>
 <header th:insert="blocks/header :: header"></header>
-<div class="container mt-5">
-    <div th:each="info : ${infoOptional}" class="alert alert-info mt-2">
-        <h3 th:text="${info.objectAddress}"/>
-        <h3 th:text="${info.organisation}"/>
-        <h3 th:text="${info.workers_quantity}"/>
-        <a th:href="@{/object/show/{id}/edit(id=${info.id})}" class="btn btn-warning">Редактировать</a>
-        <a th:href="@{/object/show/{id}/remove(id=${info.id})}" class="btn btn-warning">Удалить</a>
-    </div>
+<div class="container mt-5 mb-5">
+    <h1>Редактирование записи</h1>
+    <form method="post">
+        <input type="text" name="objectAddress" placeholder="Введите адресс" class="form-control"><br>
+        <input type="number" name="workers_quantity" placeholder="Введите количество рабочих" class="form-control"><br>
+        <input type="text" name="organisation" placeholder="Введите название организации" class="form-control"><br>
+        <button type="submit" class="btn btn-success">Обновить</button>
+    </form>
 </div>
 </body>
 </html>

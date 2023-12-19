@@ -9,10 +9,10 @@
 <header th:insert="blocks/header :: header"></header>
 <div class="container mt-5">
   <div th:each="inf : ${infos}" class="alert alert-info mt-2">
-      <h3 th:text="${inf.objectAdress}"/>
+      <h3 th:text="${inf.objectAddress}"/>
       <h3 th:text="${inf.organisation}"/>
       <h3 th:text="${inf.workers_quantity}"/>
-      <a th:href="'/add/' + ${inf.id}">Подробнее</a>
+      <a href="'/objectpage/' + ${inf.id}">Подробнее</a>
   </div>
 </div>
     </body>
@@ -138,7 +138,7 @@
     display: flex;
     margin-top: 15px;
     flex-grow: 1;
-    flex-basis: 0%;
+    flex-basis: 0;
     flex-direction: column;
   }
   .hdiv-5 {
@@ -159,7 +159,7 @@
     display: flex;
     margin-top: 15px;
     flex-grow: 1;
-    flex-basis: 0%;
+    flex-basis: 0;
     flex-direction: column;
   }
   .hdiv-7 {
@@ -194,7 +194,7 @@
     display: flex;
     margin-top: 15px;
     flex-grow: 1;
-    flex-basis: 0%;
+    flex-basis: 0;
     flex-direction: column;
   }
   .hdiv-10 {

@@ -19,4 +19,26 @@ public class ObjectInfo {
     @OneToMany
     @JoinColumn(name = "alocation_id",referencedColumnName = "id")
     private Set<Alocation> alocation;
+
+    public int getId() {
+        return id;
+    }
+
+    public String getObjectAddress() {
+        return objectAddress;
+    }
+
+    public int getWorkers_quantity() {
+        return workers_quantity;
+    }
+
+    public String getOrganisation() {
+        return organisation;
+    }
+
+    public Set<Alocation> getAlocation() {
+        return alocation;
+    }
+
+
 }

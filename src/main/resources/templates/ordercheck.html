@@ -3,19 +3,49 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../static/styles/monitoring2.css">
+    <link rel="stylesheet" href="../static/styles/monitoring1.css">
     <link rel="stylesheet" href="../static/styles/header.css">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
 </head>
 <body>
 <header th:insert="blocks/header :: header"></header>
 <div class="div">
-    <div class="div-14">Мониторинг</div>
-    <div class="div-15">Название товара(ов)</div>
-    <div class="div-16"><span  th:text="${el.nameProduct}" class="div-17"/></div>
-    <div class="div-18">Адрес</div>
-    <div class="div-19"><span  th:text="${el.nameProduct}" class="div-17"/></div>
-    <div class="div-21">Материально-ответственное лицо</div>
-    <div class="div-22"><span  th:text="${el.nameProduct}" class="div-17"/></div>
+
+    <div class="div-12">Хранилище данных: Вывод</div>
+    <form th:action="@{/search}" method="post">
+        <label for="param1">ID Deal List:</label>
+        <input class="div-14" type="text" id="param1" name="param1" th:value="${param1}" />
+
+        <label for="param2">Продукт</label>
+        <input class="div-19" type="text" id="param2" name="param2" th:value="${param2}" />
+
+        <button class="div-24" type="submit">Search</button>
+    </form>
+    <th:block th:if="${param1 != null and param2 != null}">
+        <table>
+            <thead>
+            <tr>
+                <th>Column 1</th>
+                <th>Column 2</th>
+                <!-- Add more columns as needed -->
+            </tr>
+            </thead>
+            <tbody>
+            <!-- Iterate over the search results and populate the table -->
+            <tr th:each="result : ${searchResults}">
+                <td th:text="${result.column1}"></td>
+                <td th:text="${result.column2}"></td>
+                <!-- Add more cells as needed -->
+            </tr>
+            </tbody>
+        </table>
+    </th:block>
+
+    <!-- Handle cases where only one parameter is present or the search results are empty -->
+    <th:block th:if="${(param1 != null and param2 == null) or (param1 == null and param2 != null) or searchResults.isEmpty()}">
+        <p>No results found.</p>
+    </th:block>
+
 </div>
 <style>
     .div {
@@ -121,7 +151,6 @@
         text-decoration: none;
     }
     .div-10 {
-        background-color: #36d986;
         display: flex;
         flex-grow: 1;
         flex-basis: 0%;
@@ -133,32 +162,16 @@
         color: #363636;
         text-align: center;
         background-color: #36d986;
-        padding: 9px 6px;
-        font: 400 25px/30px Inter, sans-serif;
-        text-decoration: none;
-    }
-    .div-12 {
-        display: flex;
-        flex-grow: 1;
-        flex-basis: 0%;
-        flex-direction: column;
-        text-decoration: none;
-    }
-    .div-13 {
-        justify-content: center;
-        color: #363636;
-        text-align: center;
-        background-color: #36d986;
         padding: 9px 11px;
         font: 400 25px/30px Inter, sans-serif;
         text-decoration: none;
     }
     @media (max-width: 991px) {
-        .div-13 {
+        .div-11 {
             padding-right: 1px;
         }
     }
-    .div-14 {
+    .div-12 {
         color: #000;
         align-self: center;
         margin-top: 84px;
@@ -167,37 +180,63 @@
         text-decoration: none;
     }
     @media (max-width: 991px) {
-        .div-14 {
+        .div-12 {
             margin-top: 40px;
             white-space: initial;
         }
     }
-    .div-15 {
+    .div-13 {
         align-self: center;
         color: #52525c;
-        margin-top: 89px;
+        margin-top: 155px;
         width: 599px;
         max-width: 100%;
         font: 400 30px/45px Inter, sans-serif;
         text-decoration: none;
     }
     @media (max-width: 991px) {
-        .div-15 {
+        .div-13 {
             margin-top: 40px;
         }
     }
-    .div-16 {
+    .div-14 {
         align-self: center;
         border-radius: 8px;
-        border: 2px solid #4200ff;
+        border: 2px solid #d9d9d9;
         background-color: #fff;
         display: flex;
         margin-top: 8px;
         width: 599px;
         max-width: 100%;
         flex-direction: column;
+        text-decoration: none;
+    }
+    .div-15 {
+        border-radius: 8px;
+        border: 2px solid #d9d9d9;
+        background-color: #fff;
+        display: flex;
+        flex-direction: column;
+        text-decoration: none;
+    }
+    @media (max-width: 991px) {
+        .div-15 {
+            max-width: 100%;
+        }
+    }
+    .div-16 {
+        border-radius: 8px;
+        border: 2px solid #d9d9d9;
+        background-color: #fff;
+        display: flex;
+        flex-direction: column;
         padding: 12px 16px;
         text-decoration: none;
+    }
+    @media (max-width: 991px) {
+        .div-16 {
+            max-width: 100%;
+        }
     }
     .div-17 {
         color: #000;
@@ -213,7 +252,7 @@
     .div-18 {
         align-self: center;
         color: #52525c;
-        margin-top: 50px;
+        margin-top: 64px;
         width: 599px;
         max-width: 100%;
         font: 400 30px/45px Inter, sans-serif;
@@ -227,20 +266,21 @@
     .div-19 {
         align-self: center;
         border-radius: 8px;
-        border: 2px solid #4200ff;
+        border: 2px solid #d9d9d9;
         background-color: #fff;
         display: flex;
         margin-top: 8px;
         width: 599px;
         max-width: 100%;
         flex-direction: column;
-        padding: 12px 16px;
         text-decoration: none;
     }
     .div-20 {
-        color: #000;
-        opacity: 0.5;
-        font: 400 15px/24px Inter, sans-serif;
+        border-radius: 8px;
+        border: 2px solid #d9d9d9;
+        background-color: #fff;
+        display: flex;
+        flex-direction: column;
         text-decoration: none;
     }
     @media (max-width: 991px) {
@@ -249,35 +289,30 @@
         }
     }
     .div-21 {
-        align-self: center;
-        color: #52525c;
-        margin-top: 50px;
-        width: 599px;
-        max-width: 100%;
-        font: 400 30px/45px Inter, sans-serif;
+        border-radius: 8px;
+        border: 2px solid #d9d9d9;
+        background-color: #fff;
+        display: flex;
+        flex-direction: column;
         text-decoration: none;
     }
     @media (max-width: 991px) {
         .div-21 {
-            margin-top: 40px;
+            max-width: 100%;
         }
     }
     .div-22 {
-        align-self: center;
         border-radius: 8px;
-        border: 2px solid #4200ff;
+        border: 2px solid #d9d9d9;
         background-color: #fff;
         display: flex;
-        width: 599px;
-        max-width: 100%;
         flex-direction: column;
-        margin: 8px 0 249px;
         padding: 12px 16px;
         text-decoration: none;
     }
     @media (max-width: 991px) {
         .div-22 {
-            margin-bottom: 40px;
+            max-width: 100%;
         }
     }
     .div-23 {
@@ -289,6 +324,26 @@
     @media (max-width: 991px) {
         .div-23 {
             max-width: 100%;
+        }
+    }
+    .div-24 {
+        justify-content: center;
+        color: #363636;
+        text-align: center;
+        background-color: #1a8fdd;
+        align-self: center;
+        width: 300px;
+        max-width: 100%;
+        align-items: center;
+        margin: 105px 0 158px;
+        padding: 29px 20px;
+        font: 400 30px/36px Inter, sans-serif;
+        cursor: pointer;
+        text-decoration: none;
+    }
+    @media (max-width: 991px) {
+        .div-24 {
+            margin: 40px 0;
         }
     }
 

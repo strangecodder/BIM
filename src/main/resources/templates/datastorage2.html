@@ -9,8 +9,9 @@
 </head>
 <body>
 
+<header th:insert="blocks/header :: header"></header>
 <div class="div">
-  <header th:insert="blocks/header :: header"></header>  <div class="div-14">Хранилище данных  Добавление</div>
+  <div class="div-14">Хранилище данных  Добавление</div>
   <form action="/datastorage2add" method="post">
     <div class="div-15">ID Поставщика</div>
     <input class="div-16" type="text" name="id" th:value="${id}"  placeholder="Поиск по id" size="20" >

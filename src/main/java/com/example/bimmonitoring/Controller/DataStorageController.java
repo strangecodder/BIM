@@ -7,22 +7,22 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Slf4j
 @Controller
-@RequestMapping("/employee")
-public class EmployeeController {
+@RequestMapping("/datastorage")
+public class DataStorageController {
 
-    @GetMapping("/add")
-    public String addEmployee(){
-        return "employeeadd";
+    @GetMapping("/")
+    public String initDataStorage(){
+        return "datastorage";
     }
 
     @GetMapping("/check")
-    public String checkEmployee(){
-        return "employeepage";
+    public String checkDataStorage(){
+        return "datastorage2";
     }
 
-
-    @GetMapping("/")
-    public String getEmployeePage(){
-        return "employeeinit";
+    @GetMapping("/add")
+    public String addDataStorage(){
+        return "datastorage3";
     }
+
 }

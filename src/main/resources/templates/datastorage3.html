@@ -8,8 +8,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
 </head>
 <body>
+<header th:insert="blocks/header :: header"></header>
 <div class="div">
-  <header th:insert="blocks/header :: header"></header> <div class="div-12">Хранилище данных: Вывод</div>
+
+  <div class="div-12">Хранилище данных: Вывод</div>
   <form th:action="@{/search}" method="post">
     <label for="param1">ID Накладой:</label>
     <input class="div-14" type="text" id="param1" name="param1" th:value="${param1}" />

@@ -36,13 +36,13 @@ public class WarehouseController {
         return "warehouseadd";
     }
 
-    @GetMapping("/init")
-    public String getWarehouseInit(){
-        return "warehouseinit";
+    @GetMapping("/show")
+    public String getWarehouseShow(){
+        return "warehousepage";
     }
 
     @GetMapping("/")
     public String getWarehouse(){
-        return "warehousepage";
+        return "warehouseinit";
     }
 }

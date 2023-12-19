@@ -9,11 +9,12 @@
 </head>
 
 <body>
+<header th:insert="blocks/header :: header"></header>
 <div class="div">
-  <header th:insert="blocks/header :: header"></header>
-  <div class="div-14">Страница хранилища</div>
-  <button class="div-18" onclick="alert('Кнопка была нажата!')">Добавить</button>
-  <button class="div-19" onclick="alert('Кнопка была нажата!')">Проверить</button>
+
+  <div class="div-14">Страница склада</div>
+  <a class="div-18" href="/warehouse/add">Добавить</a>
+  <a class="div-19" href="/warehouse/show">Проверить</a>
 </div>
 <style>
   .div {

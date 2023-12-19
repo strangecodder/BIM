@@ -3,76 +3,19 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 </head>
 <body>
-
 <header th:insert="blocks/header :: header"></header>
-<div class="div">
-  <div class="div-2">
-    <div class="div-3">Страница объекта</div>
-    <div class="div-4">Название объекта</div>
-    <!DOCTYPE html>
-    <html xmlns:th="http://www.thymeleaf.org">
-    <head>
-      <title>Всплывающие списки</title>
-      <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-      <style>
-        /* Стили для всплывающих списков */
-        .popup {
-          display: none;
-          position: absolute;
-          top: 390px;
-          left: 525px;
-          background: #fff;
-          border: 1px solid #ccc;
-          z-index: 1000;
-          padding: 12px 85px;
-          font-size: 30px;
-        }
-      </style>
-    </head>
-    <body>
 
-    <!-- Форма ввода названия объекта -->
-    <form th:action="#" th:object="${searchForm}">
-      <input class="div-5" type="text" id="objectName" th:field="*{objectName}" />
-    </form>
-
-    <!-- Всплывающий список с полной информацией об объекте -->
-    <div id="infoPopup" class="popup">
-      <h3>Информация об объекте</h3>
-      <ul>
-        <li>Адрес: <span id="address"></span></li>
-        <li>Количество работников: <span id="workers"></span></li>
-        <li>Организация: <span id="organization"></span></li>
-        <li>Локация: <span id="location"></span></li>
-      </ul>
-    </div>
-
-    <!-- Скрипт JavaScript для динамического обновления всплывающего списка -->
-    <script th:inline="javascript">
-      function showInfo() {
-        var objectName = $('#objectName').val();
-
-        // Здесь вы можете добавить код для получения данных об объекте по его названию
-        // Например, можно использовать AJAX запрос к серверу
-
-        // Временные данные (замените их на реальные данные)
-        var address = "123 Main Street";
-        var workers = 50;
-        var organization = "Example Organization";
-        var location = "City, Country";
-
-        // Обновление содержимого всплывающего списка
-        $('#address').text(address);
-        $('#workers').text(workers);
-        $('#organization').text(organization);
-        $('#location').text(location);
-
-        // Показ всплывающего списка
-        $('#infoPopup').show();
-      }
-    </script>
+<div class="container mt-5">
+  <div th:each="inf : ${infos}" class="alert alert-info mt-2">
+      <h3 th:text="${inf.objectAddress}"/>
+      <h3 th:text="${inf.organisation}"/>
+      <h3 th:text="${inf.workers_quantity}"/>
+      <a th:href="'/add/' + ${inf.id}">Подробнее</a>
+  </div>
+</div>
 
     </body>
     </html>

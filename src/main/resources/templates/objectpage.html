@@ -9,9 +9,9 @@
 <header th:insert="blocks/header :: header"></header>
 <div class="container mt-5">
   <div th:each="inf : ${infos}" class="alert alert-info mt-2">
-      <h3 th:text="${inf.objectAddress}"/>
+      <h3 th:text="${inf.object_address}"/>
       <h3 th:text="${inf.organisation}"/>
-      <h3 th:text="${inf.workers_quantity}"/>
+<!--      <h3 th:text="${inf.workersInfo}"/>-->
       <a th:href="@{/object/show/{id}(id=${inf.id})}" class="btn btn-warning">Подробнее</a>
   </div>
 </div>

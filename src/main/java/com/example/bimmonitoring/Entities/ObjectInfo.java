@@ -1,48 +1,47 @@
 package com.example.bimmonitoring.Entities;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
 
 import java.util.Set;
 
 @Entity
+@Data
+@Table(name = "object_info")
+@AllArgsConstructor
 public class ObjectInfo {
 
     @Id
-    @Column(name = "object_id")
-    private int id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(columnDefinition = "serial")
+    private Integer id;
 
-    @Column(name = "object_adress")
-    private String objectAdress;
+    @Column(name = "object_address")
+    private String object_address;
 
-    private int workersQuantity;
+    @Column(name = "workers_quantity")
+    private int workers_quantity;
 
+    @Column(name = "organization")
     private String organisation;
 
-//    @OneToMany
-//    @JoinColumn(name = "alocationId",referencedColumnName = "id")
-//    private Set<Alocation> alocation;
+
+    @OneToMany
+    @JoinColumn(name = "workers_group_id",referencedColumnName = "id")
+    @Column(name = "workers_group_id")
+    private Set<WorkersInfo> workersInfo;
 
     public ObjectInfo(){}
-    public ObjectInfo(String objectAdress, int workersQuantity, String organisation){
-        this.objectAdress = objectAdress;
+
+    public ObjectInfo( String object_address, String organisation) {
+        this.object_address = object_address;
         this.organisation = organisation;
-        this.workersQuantity = workersQuantity;
     }
 
-    public int getId() {
-        return id;
+    public ObjectInfo(String object_address, String organisation, Set<WorkersInfo> workersInfo) {
+        this.object_address = object_address;
+        this.organisation = organisation;
+        this.workersInfo = workersInfo;
     }
-
-    public String getObjectAddress() {
-        return objectAdress;
-    }
-
-    public int getWorkers_quantity() {
-        return workersQuantity;
-    }
-
-    public String getOrganisation() {
-        return organisation;
-    }
-
 }

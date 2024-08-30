@@ -1,14 +1,27 @@
 package com.example.bimmonitoring.Entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
 
 @Entity
+@Data
+@Table(name = "material")
+@AllArgsConstructor
 public class Material {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
+    @Column(name = "name")
     private String name;
+
+    @Column(name = "ref")
+    private String ref;
+
+    @Column(name = "gost")
+    private String gost;
+
+    public Material(){};
 }

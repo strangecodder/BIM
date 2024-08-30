@@ -1,12 +1,18 @@
 package com.example.bimmonitoring.Entities;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
 
 @Entity
+@Data
+@Table(name = "shelf")
+@AllArgsConstructor
 public class Shelf {
 
     @Id
-    private String shelfId;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private String id;
 
     private String productSection;
 
@@ -17,6 +23,8 @@ public class Shelf {
     private Product product;
 
     @OneToOne
-    @JoinColumn(name = "warehouse_id", referencedColumnName = "warehouse_id")
+    @JoinColumn(name = "warehouse_id", referencedColumnName = "id")
     private Warehouse warehouse;
+
+    public Shelf(){};
 }

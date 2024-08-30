@@ -1,21 +1,25 @@
 package com.example.bimmonitoring.Entities;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.Generated;
 
 import java.util.Date;
 
 @Entity
+@Data
 @Table(name = "alocation")
+@AllArgsConstructor
 public class Alocation {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
-    private Date shipping_time;
+    @Column(name = "name")
+    private String name;
 
-    private Date real_shipping_time;
 
-    @ManyToOne
-    @JoinColumn(name = "object_id", referencedColumnName = "object_id")
-    private ObjectInfo objectId;
+    public Alocation(){}
 }

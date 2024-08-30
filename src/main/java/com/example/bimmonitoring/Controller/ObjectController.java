@@ -1,6 +1,8 @@
 package com.example.bimmonitoring.Controller;
 
 //import ch.qos.logback.core.model.Model;
+import com.example.bimmonitoring.Entities.WorkersGroup;
+import com.example.bimmonitoring.Entities.WorkersInfo;
 import jakarta.websocket.server.PathParam;
 import org.springframework.ui.Model;
 import com.example.bimmonitoring.Entities.ObjectInfo;
@@ -12,6 +14,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.Optional;
+import java.util.Set;
 
 @Slf4j
 @Controller
@@ -39,9 +42,9 @@ public class ObjectController {
     }
 
     @PostMapping("/add")
-    public String postObjectAdd(@RequestParam String objectAddress,@RequestParam int workers_quantity,
-            @RequestParam String organisation,  Model model){
-        ObjectInfo objectInfo = new ObjectInfo(objectAddress, workers_quantity, organisation);
+    public String postObjectAdd(@RequestParam String object_address,
+                                @RequestParam String organisation, @RequestParam Set<WorkersInfo> workers_group_id, Model model){
+        ObjectInfo objectInfo = new ObjectInfo(object_address, organisation,workers_group_id);
         objectInfoRepository.save(objectInfo);
         return "redirect:/object/show";
     }
@@ -58,6 +61,7 @@ public class ObjectController {
         model.addAttribute("infoOptional", objectInfoArrayList);
         return "details";
     }
+
     @GetMapping("/show/{id}")
     public String getDetails(@PathVariable(value = "id") int id, Model model){
         if(!objectInfoRepository.existsById(id)){

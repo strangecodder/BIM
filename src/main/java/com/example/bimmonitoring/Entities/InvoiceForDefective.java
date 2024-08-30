@@ -1,20 +1,28 @@
 package com.example.bimmonitoring.Entities;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
 
 import java.util.Set;
 
 @Entity
+@Data
+@Table(name = "invoice_for_detective")
+@AllArgsConstructor
 public class InvoiceForDefective {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
-    @OneToMany
+    @ManyToOne
     @JoinColumn(name = "product_id",referencedColumnName = "id")
-    private Set<Product> product;
+    private Product product;
 
-    @OneToMany
+    @ManyToOne
     @JoinColumn(name = "recipient_id",referencedColumnName = "id")
-    private Set<Recipient> recipient;
+    private Recipient recipient;
+
+    public InvoiceForDefective(){};
 }

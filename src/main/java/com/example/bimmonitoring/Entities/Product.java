@@ -1,21 +1,29 @@
 package com.example.bimmonitoring.Entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
 
 import java.util.Date;
 
 @Entity
+@Data
 @Table(name = "product")
+@AllArgsConstructor
 public class Product {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
-    private int quantityOfGoods;
+    @Column(name = "quantity_of_goods")
+    private int quantity_of_goods;
 
+    @Column(name = "name")
     private String name;
 
+    @Column(name = "expiring_date")
     private Date expiring_date;
+
+    public Product(){};
 }

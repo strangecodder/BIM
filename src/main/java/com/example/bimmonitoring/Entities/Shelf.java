@@ -11,7 +11,8 @@ import lombok.Data;
 public class Shelf {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(columnDefinition = "serial")
     private String id;
 
     private String productSection;

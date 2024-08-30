@@ -11,7 +11,8 @@ import lombok.Data;
 public class Recipient {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(columnDefinition = "serial")
     private int id;
 
     @Column(name = "full_name_recipient")

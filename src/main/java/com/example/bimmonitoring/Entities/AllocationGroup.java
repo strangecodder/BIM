@@ -10,7 +10,8 @@ import lombok.Data;
 @AllArgsConstructor
 public class AllocationGroup {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(columnDefinition = "serial")
     private int id;
 
     @ManyToOne

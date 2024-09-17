@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.24.xsd"
+        objectQuotingStrategy="QUOTE_ONLY_RESERVED_WORDS">
+    <changeSet id="1726582337376-56" author="artemdemidov">
+        <dropForeignKeyConstraint baseTableName="allocation_group" constraintName="allocation_fk"/>
+    </changeSet>
+    <changeSet id="1726582337376-57" author="artemdemidov">
+        <dropForeignKeyConstraint baseTableName="shipping_invoice" constraintName="allocation_fk"/>
+    </changeSet>
+    <changeSet id="1726582337376-58" author="artemdemidov">
+        <dropForeignKeyConstraint baseTableName="order_list" constraintName="deal_list_fk"/>
+    </changeSet>
+    <changeSet id="1726582337376-59" author="artemdemidov">
+        <dropForeignKeyConstraint baseTableName="purchase_invoice" constraintName="deal_list_fk"/>
+    </changeSet>
+    <changeSet id="1726582337376-60" author="artemdemidov">
+        <dropForeignKeyConstraint baseTableName="deal_list" constraintName="info_about_sellers_fk"/>
+    </changeSet>
+    <changeSet id="1726582337376-61" author="artemdemidov">
+        <dropForeignKeyConstraint baseTableName="object_info" constraintName="object_info_workers_group_id_fk"/>
+    </changeSet>
+    <changeSet id="1726582337376-62" author="artemdemidov">
+        <dropForeignKeyConstraint baseTableName="purchase_invoice" constraintName="product_fk"/>
+    </changeSet>
+    <changeSet id="1726582337376-63" author="artemdemidov">
+        <dropForeignKeyConstraint baseTableName="purchase_invoice" constraintName="provider_fk"/>
+    </changeSet>
+    <changeSet id="1726582337376-64" author="artemdemidov">
+        <dropForeignKeyConstraint baseTableName="shipping_invoice" constraintName="purchase_invoice_fk"/>
+    </changeSet>
+    <changeSet id="1726582337376-65" author="artemdemidov">
+        <dropForeignKeyConstraint baseTableName="order_list" constraintName="wish_list_fk"/>
+    </changeSet>
+    <changeSet id="1726582337376-26" author="artemdemidov">
+        <createTable tableName="alocation">
+            <column autoIncrement="true" name="id" type="serial">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_alocation"/>
+            </column>
+            <column name="name" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="1726582337376-27" author="artemdemidov">
+        <createTable tableName="purchace_invoice">
+            <column autoIncrement="true" name="id" type="serial">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_purchace_invoice"/>
+            </column>
+            <column name="deal_list_id" type="serial"/>
+            <column name="prodiver_id" type="serial"/>
+            <column name="product_id" type="serial"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="1726582337376-28" author="artemdemidov">
+        <addColumn tableName="shipping_invoice">
+            <column name="alocation_id" type="serial"/>
+            <column name="purchace_invoice_id" type="serial"/>
+        </addColumn>
+    </changeSet>
+    <changeSet id="1726582337376-29" author="artemdemidov">
+        <addColumn tableName="deal_list">
+            <column name="deal_list_id" type="serial"/>
+            <column name="seller_id" type="serial"/>
+            <column name="wish_list_id" type="serial"/>
+        </addColumn>
+    </changeSet>
+    <changeSet id="1726582337376-30" author="artemdemidov">
+        <addColumn tableName="employee">
+            <column name="employee_id" type="serial"/>
+        </addColumn>
+    </changeSet>
+    <changeSet id="1726582337376-31" author="artemdemidov">
+        <addColumn tableName="warehouse">
+            <column name="name" type="VARCHAR(255)"/>
+        </addColumn>
+    </changeSet>
+    <changeSet id="1726582337376-32" author="artemdemidov">
+        <addColumn tableName="shelf">
+            <column name="product_section" type="VARCHAR(255)"/>
+        </addColumn>
+    </changeSet>
+    <changeSet id="1726582337376-36" author="artemdemidov">
+        <addColumn tableName="wish_list">
+            <column name="wish_list_id" type="serial"/>
+        </addColumn>
+    </changeSet>
+    <changeSet id="1726582337376-37" author="artemdemidov">
+        <addColumn tableName="workers_info">
+            <column name="workers_group_id" type="serial"/>
+        </addColumn>
+    </changeSet>
+    <changeSet id="1726582337376-38" author="artemdemidov">
+        <addColumn tableName="info_about_sellers">
+            <column name="workers_quantity" type="INT"/>
+        </addColumn>
+    </changeSet>
+    <changeSet id="1726582337376-39" author="artemdemidov">
+        <addUniqueConstraint columnNames="seller_id" constraintName="uc_deal_list_seller" tableName="deal_list"/>
+    </changeSet>
+    <changeSet id="1726582337376-40" author="artemdemidov">
+        <addUniqueConstraint columnNames="wish_list_id" constraintName="uc_deal_list_wish_list" tableName="deal_list"/>
+    </changeSet>
+    <changeSet id="1726582337376-41" author="artemdemidov">
+        <addUniqueConstraint columnNames="deal_list_id" constraintName="uc_purchace_invoice_deal_list"
+                             tableName="purchace_invoice"/>
+    </changeSet>
+    <changeSet id="1726582337376-42" author="artemdemidov">
+        <addUniqueConstraint columnNames="product_id" constraintName="uc_shelf_product" tableName="shelf"/>
+    </changeSet>
+    <changeSet id="1726582337376-43" author="artemdemidov">
+        <addUniqueConstraint columnNames="warehouse_id" constraintName="uc_shelf_warehouse" tableName="shelf"/>
+    </changeSet>
+    <changeSet id="1726582337376-44" author="artemdemidov">
+        <addForeignKeyConstraint baseColumnNames="allocation_id" baseTableName="allocation_group"
+                                 constraintName="FK_ALLOCATION_GROUP_ON_ALLOCATION" referencedColumnNames="id"
+                                 referencedTableName="alocation"/>
+    </changeSet>
+    <changeSet id="1726582337376-45" author="artemdemidov">
+        <addForeignKeyConstraint baseColumnNames="deal_list_id" baseTableName="deal_list"
+                                 constraintName="FK_DEAL_LIST_ON_DEAL_LIST" referencedColumnNames="id"
+                                 referencedTableName="order_list"/>
+    </changeSet>
+    <changeSet id="1726582337376-46" author="artemdemidov">
+        <addForeignKeyConstraint baseColumnNames="seller_id" baseTableName="deal_list"
+                                 constraintName="FK_DEAL_LIST_ON_SELLER" referencedColumnNames="id"
+                                 referencedTableName="info_about_sellers"/>
+    </changeSet>
+    <changeSet id="1726582337376-47" author="artemdemidov">
+        <addForeignKeyConstraint baseColumnNames="wish_list_id" baseTableName="deal_list"
+                                 constraintName="FK_DEAL_LIST_ON_WISH_LIST" referencedColumnNames="id"
+                                 referencedTableName="wish_list"/>
+    </changeSet>
+    <changeSet id="1726582337376-48" author="artemdemidov">
+        <addForeignKeyConstraint baseColumnNames="employee_id" baseTableName="employee"
+                                 constraintName="FK_EMPLOYEE_ON_EMPLOYEE" referencedColumnNames="id"
+                                 referencedTableName="warehouse"/>
+    </changeSet>
+    <changeSet id="1726582337376-49" author="artemdemidov">
+        <addForeignKeyConstraint baseColumnNames="deal_list_id" baseTableName="purchace_invoice"
+                                 constraintName="FK_PURCHACE_INVOICE_ON_DEAL_LIST" referencedColumnNames="id"
+                                 referencedTableName="deal_list"/>
+    </changeSet>
+    <changeSet id="1726582337376-50" author="artemdemidov">
+        <addForeignKeyConstraint baseColumnNames="prodiver_id" baseTableName="purchace_invoice"
+                                 constraintName="FK_PURCHACE_INVOICE_ON_PRODIVER" referencedColumnNames="id"
+                                 referencedTableName="provider"/>
+    </changeSet>
+    <changeSet id="1726582337376-51" author="artemdemidov">
+        <addForeignKeyConstraint baseColumnNames="product_id" baseTableName="purchace_invoice"
+                                 constraintName="FK_PURCHACE_INVOICE_ON_PRODUCT" referencedColumnNames="id"
+                                 referencedTableName="product"/>
+    </changeSet>
+    <changeSet id="1726582337376-52" author="artemdemidov">
+        <addForeignKeyConstraint baseColumnNames="alocation_id" baseTableName="shipping_invoice"
+                                 constraintName="FK_SHIPPING_INVOICE_ON_ALOCATION" referencedColumnNames="id"
+                                 referencedTableName="alocation"/>
+    </changeSet>
+    <changeSet id="1726582337376-53" author="artemdemidov">
+        <addForeignKeyConstraint baseColumnNames="purchace_invoice_id" baseTableName="shipping_invoice"
+                                 constraintName="FK_SHIPPING_INVOICE_ON_PURCHACE_INVOICE" referencedColumnNames="id"
+                                 referencedTableName="purchace_invoice"/>
+    </changeSet>
+    <changeSet id="1726582337376-54" author="artemdemidov">
+        <addForeignKeyConstraint baseColumnNames="wish_list_id" baseTableName="wish_list"
+                                 constraintName="FK_WISH_LIST_ON_WISH_LIST" referencedColumnNames="id"
+                                 referencedTableName="order_list"/>
+    </changeSet>
+    <changeSet id="1726582337376-55" author="artemdemidov">
+        <addForeignKeyConstraint baseColumnNames="workers_group_id" baseTableName="workers_info"
+                                 constraintName="FK_WORKERS_INFO_ON_WORKERS_GROUP" referencedColumnNames="id"
+                                 referencedTableName="object_info"/>
+    </changeSet>
+    <changeSet id="1726582337376-66" author="artemdemidov">
+        <dropTable cascadeConstraints="true" tableName="allocation"/>
+    </changeSet>
+    <changeSet id="1726582337376-67" author="artemdemidov">
+        <dropTable cascadeConstraints="true" tableName="purchase_invoice"/>
+    </changeSet>
+    <changeSet id="1726582337376-68" author="artemdemidov">
+        <dropColumn columnName="allocation_id" tableName="shipping_invoice"/>
+
+        <dropColumn columnName="purchaise_invoice_id" tableName="shipping_invoice"/>
+    </changeSet>
+    <changeSet id="1726582337376-69" author="artemdemidov">
+        <dropColumn columnName="deal_list_id" tableName="order_list"/>
+
+        <dropColumn columnName="wish_list_id" tableName="order_list"/>
+    </changeSet>
+    <changeSet id="1726582337376-70" author="artemdemidov">
+        <dropColumn columnName="employee_id" tableName="warehouse"/>
+    </changeSet>
+    <changeSet id="1726582337376-71" author="artemdemidov">
+        <dropColumn columnName="info_about_sellers" tableName="deal_list"/>
+    </changeSet>
+    <changeSet id="1726582337376-74" author="artemdemidov">
+        <dropColumn columnName="workers_group_id" tableName="object_info"/>
+    </changeSet>
+    <changeSet id="1726582337376-75" author="artemdemidov">
+        <dropSequence sequenceName="default_sequence"/>
+    </changeSet>
+    <changeSet id="1726582337376-1" author="artemdemidov">
+        <modifyDataType columnName="address" newDataType="VARCHAR(255)" tableName="info_about_sellers"/>
+    </changeSet>
+    <changeSet id="1726582337376-2" author="artemdemidov">
+        <modifyDataType columnName="address" newDataType="VARCHAR(255)" tableName="warehouse"/>
+    </changeSet>
+    <changeSet id="1726582337376-3" author="artemdemidov">
+        <modifyDataType columnName="brand" newDataType="VARCHAR(255)" tableName="transport"/>
+    </changeSet>
+    <changeSet id="1726582337376-4" author="artemdemidov">
+        <modifyDataType columnName="company_name" newDataType="VARCHAR(255)" tableName="info_about_sellers"/>
+    </changeSet>
+    <changeSet id="1726582337376-5" author="artemdemidov">
+        <modifyDataType columnName="company_name" newDataType="VARCHAR(255)" tableName="provider"/>
+    </changeSet>
+    <changeSet id="1726582337376-6" author="artemdemidov">
+        <modifyDataType columnName="company_name" newDataType="VARCHAR(255)" tableName="recipient"/>
+    </changeSet>
+    <changeSet id="1726582337376-7" author="artemdemidov">
+        <modifyDataType columnName="email" newDataType="VARCHAR(255)" tableName="info_about_sellers"/>
+    </changeSet>
+    <changeSet id="1726582337376-8" author="artemdemidov">
+        <dropColumn columnName="expiring_date" tableName="product"/>
+    </changeSet>
+    <changeSet id="1726582337376-9" author="artemdemidov">
+        <addColumn tableName="product">
+            <column name="expiring_date" type="DATETIME"/>
+        </addColumn>
+    </changeSet>
+    <changeSet id="1726582337376-10" author="artemdemidov">
+        <addNotNullConstraint columnDataType="INT" columnName="free_space" tableName="shelf" validate="true"/>
+    </changeSet>
+    <changeSet id="1726582337376-11" author="artemdemidov">
+        <modifyDataType columnName="full_name" newDataType="VARCHAR(255)" tableName="employee"/>
+    </changeSet>
+    <changeSet id="1726582337376-12" author="artemdemidov">
+        <modifyDataType columnName="full_name" newDataType="VARCHAR(255)" tableName="workers_info"/>
+    </changeSet>
+    <changeSet id="1726582337376-13" author="artemdemidov">
+        <modifyDataType columnName="full_name_recipient" newDataType="VARCHAR(255)" tableName="recipient"/>
+    </changeSet>
+    <changeSet id="1726582337376-14" author="artemdemidov">
+        <modifyDataType columnName="gost" newDataType="VARCHAR(255)" tableName="material"/>
+    </changeSet>
+    <changeSet id="1726582337376-15" author="artemdemidov">
+        <modifyDataType columnName="job_title" newDataType="VARCHAR(255)" tableName="employee"/>
+    </changeSet>
+    <changeSet id="1726582337376-16" author="artemdemidov">
+        <modifyDataType columnName="job_title" newDataType="VARCHAR(255)" tableName="workers_info"/>
+    </changeSet>
+    <changeSet id="1726582337376-17" author="artemdemidov">
+        <modifyDataType columnName="name" newDataType="VARCHAR(255)" tableName="material"/>
+    </changeSet>
+    <changeSet id="1726582337376-18" author="artemdemidov">
+        <modifyDataType columnName="name" newDataType="VARCHAR(255)" tableName="product"/>
+    </changeSet>
+    <changeSet id="1726582337376-19" author="artemdemidov">
+        <modifyDataType columnName="object_address" newDataType="VARCHAR(255)" tableName="object_info"/>
+    </changeSet>
+    <changeSet id="1726582337376-20" author="artemdemidov">
+        <modifyDataType columnName="organization" newDataType="VARCHAR(255)" tableName="object_info"/>
+    </changeSet>
+    <changeSet id="1726582337376-21" author="artemdemidov">
+        <modifyDataType columnName="ref" newDataType="VARCHAR(255)" tableName="material"/>
+    </changeSet>
+    <changeSet id="1726582337376-22" author="artemdemidov">
+        <dropColumn columnName="state" tableName="wish_list"/>
+    </changeSet>
+    <changeSet id="1726582337376-23" author="artemdemidov">
+        <addColumn tableName="wish_list">
+            <column name="state" type="INT"/>
+        </addColumn>
+    </changeSet>
+    <changeSet id="1726582337376-24" author="artemdemidov">
+        <modifyDataType columnName="state_number" newDataType="VARCHAR(255)" tableName="transport"/>
+    </changeSet>
+    <changeSet id="1726582337376-25" author="artemdemidov">
+        <modifyDataType columnName="web_site" newDataType="VARCHAR(255)" tableName="info_about_sellers"/>
+    </changeSet>
+
+
+    <changeSet id="726582337376-26" author="artemdemidov">
+        <loadData tableName="employee" file="db/changelog/2024/09/data/employee-data.csv"/>
+    </changeSet>
+</databaseChangeLog>

@@ -280,8 +280,8 @@
         <modifyDataType columnName="web_site" newDataType="VARCHAR(255)" tableName="info_about_sellers"/>
     </changeSet>
 
-
     <changeSet id="726582337376-26" author="artemdemidov">
         <loadData tableName="employee" file="db/changelog/2024/09/data/employee-data.csv"/>
     </changeSet>
+
 </databaseChangeLog>
